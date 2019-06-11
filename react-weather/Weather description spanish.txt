@@ -1,0 +1,36 @@
+Weather - La clima
+It is snowing	Está nevando
+It is raining	Está lloviendo
+It is cloudy	Está nublado
+It is foggy	Hay neblina
+There is a breeze	Hay una brisa
+It is windy	Hay viento
+It is very windy	Hay mucho viento
+It is sunny	Hay sol
+It is cold	Hay frio / Hace frio
+It is cool	Hay fresco / Hace fresco
+It is warm	Hay calor / Hace calor
+It is hot	Hay calor / Hace calor
+It is humid	Esta húmido
+The sky is clear	El cielo esta despajado
+Storm	Tormenta
+Hail	Granizo
+Temperature	Temperatura
+Snow	Nieve
+Rain	Lluvia
+Light rain / drizzle	Llovizno
+Heavy rain / rainstorm	Un aguacero
+Raining cats and dogs	Llover a cantaros
+Wind	Viento
+Tornado	Tornado
+Hurricane	Huracán
+Bad weather	Mal tiempo
+Good weather	Buen tiempo
+Thunder	Un trueno
+Lightning flash	Relámpago
+Ray of lightning	Un rayo
+Flood	Inundación
+Frost	Escarcha
+Dew	El sereno 
+
+  
