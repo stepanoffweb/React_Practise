@@ -26,8 +26,8 @@ For example, add this to build it for GitHub Pages:
 The build folder is ready to be deployed.
 You may serve it with a static server:
   serve -s build
-Find out more about deployment here:
-  [https://bit.ly/CRA-deploy](https://bit.ly/CRA-deploy) `
+Find out more about deployment here:`
+  [https://bit.ly/CRA-deploy](https://bit.ly/CRA-deploy) 
 
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
