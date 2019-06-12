@@ -1,9 +1,9 @@
 # React_Practise
-Training tasks on React
+Training tasks on React</br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-In the project directory, you can run:
+In every app directory, you can run:
 
 ### `npm instal`
 
@@ -31,12 +31,12 @@ Find out more about deployment here:
 
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* # App directories
+ *  ## Geolocation
+    Traning with APIs.
 
-## Geolocation
-Traning with APIs.
-
-## WeatherFinder
-geo coords of Kaliningrad:<br>
-54° 43' 12" (54° 43' 27) north latitude<br>
-20° 31' 18" (20° 31' 44) east long<br>
+ * ## WeatherFinder
+  geo coords of Kaliningrad:<br>
+  54° 43' 12" (54° 43' 27) north latitude<br>
+  20° 31' 18" (20° 31' 44) east long<br>
 
