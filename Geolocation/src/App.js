@@ -16,6 +16,7 @@ class App extends Component {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyD1DrDBUd6GNL2EIBCxK-K0OjkTny8kbuA&callback=initMap");
     window.initMap = this.initMap;
   }
+
   getVenues = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?";
     const params = {
@@ -48,9 +49,9 @@ class App extends Component {
         position: { lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
         map: map,
         title: myVenue.venue.name
-      })
+      });
 
-      let contentString = `${myVenue.venue.name}`
+      let contentString = `${myVenue.venue.name}`;
 
       marker.addListener('click', function () {
         infowindow.setContent(contentString);

@@ -6,15 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In every app directory, you can run:
 
 ### `npm instal`
-
-To install all needed dependences
+	To install all needed dependences
 
 ### `npm start`
-
-Runs the app in the development mode.<br>
+	Runs the app in the development mode.<br>
 
 ### `npm run build`
-
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
@@ -29,13 +26,13 @@ You may serve it with a static server:
 Find out more about deployment here:`
   [https://bit.ly/CRA-deploy](https://bit.ly/CRA-deploy) 
 
-
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
- # App directories
- *  ## Geolocation
+
+# App directories
+	*  ## Geolocation
     Traning with APIs.
 
- * ## WeatherFinder
+	* ## WeatherFinder
   geo coords of Kaliningrad:<br>
   54° 43' 12" (54° 43' 27) north latitude<br>
   20° 31' 18" (20° 31' 44) east long<br>
