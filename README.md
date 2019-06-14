@@ -9,7 +9,7 @@ In every app directory, you can run:
 	To install all needed dependences
 
 ### `npm start`
-	Runs the app in the development mode.<br>
+	Runs the app in the development mode.
 
 ### `npm run build`
 Builds the app for production to the `build` folder.<br>
@@ -32,10 +32,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 	*  ## Neighbourhood Map
 	Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
     Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
-		1. Add Google Maps to React without external components
-		1. Get venues from ForeSquare in React usin axios
-		1. Adding dinamic Markers to Google Maps
-		1. Display an InfoWindow when clicking on a Marker
+		* Add Google Maps to React without external components
+		* Get venues from ForeSquare in React usin axios
+		* Adding dinamic Markers to Google Maps
+		* Display an InfoWindow when clicking on a Marker
 
 	* ## WeatherFinder
 I've not found free servise to convert city names to their coordinates ("geocoding"), so you have to make it manually, sorry.
