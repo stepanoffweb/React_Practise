@@ -1,7 +1,7 @@
 # React_Practise
-Training tasks on React
-`npm install`
-`npm start`
+Training tasks on React</br>
+`npm install`</br>
+`npm start`</br>
 
 I've not found free servise to convert city names to their coordinates ("geocoding"), so you have to make it manually, sorry.
   geo coords of Kaliningrad:<br>
