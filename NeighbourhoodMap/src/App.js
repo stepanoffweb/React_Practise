@@ -2,34 +2,33 @@ import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
 
-
-
-
 class App extends Component {
 
   state = {
-    venues: []
+    venues: [],
   }
 
   componentDidMount() {
-    this.getVenues()
+    this.getVenues();
   }
 
   getVenues = () => {
+    // crucial requirements: question mark at the end of the endpoint AND the version of API!!! is not mentioned in the documentation
     const endPoint = "https://api.foursquare.com/v2/venues/explore?";
     const params = {
       client_id: "NQP3F20FS1JOJ5FZXA1CUH4FW5OTGBWISMZIFCTS445UMQGM",
       client_secret: "4SLVNWYUGSPE0HEZVRQFLEDIN1VWOOZTQDASK2EDKDS0I1U0",
       query: "food",
       ll: "54.7,20.4",
-      v: "20180323"
+      v: "20180323",
     }
-
+// learn more about axios.get arguments and URLSearchParams- what does this concatenation mean?
     axios.get(endPoint + new URLSearchParams(params))
       .then(response=>{
         this.setState({
           venues: response.data.response.groups[0].items
-        }, this.renderMap())
+          // below is weird for me because changed state must invoke the rerendering automatically
+        }, this.renderMap());
       })
       .catch(error=> {
         console.log('ERROR! ' + error);
@@ -53,7 +52,7 @@ class App extends Component {
 
   initMap = () => {
     let infowindow = new window.google.maps.InfoWindow();
-    let map = new window.google.maps.Map(document.getElementById('map'), {
+    let Mymap = new window.google.maps.Map(document.getElementById('map'), {
       center: { lat: 54.7104, lng: 20.4522 },
       zoom: 13
     })
@@ -61,7 +60,7 @@ class App extends Component {
     this.state.venues.map(myVenue => {
       let marker = new window.google.maps.Marker({
         position: { lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
-        map: map,
+        map: Mymap,
         title: myVenue.venue.name
       });
 
@@ -69,7 +68,7 @@ class App extends Component {
 
       marker.addListener('click', function () {
         infowindow.setContent(contentString);
-        infowindow.open(map, marker);
+        infowindow.open(Mymap, marker);
       });
     })
   }

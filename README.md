@@ -30,10 +30,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 # App directories
 	*  ## Neighbourhood Map
-    Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API.
+	Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
+    Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
+		1. Add Google Maps to React without external components
+		1. Get venues from ForeSquare in React usin axios
+		1. Adding dinamic Markers to Google Maps
+		1. Display an InfoWindow when clicking on a Marker
 
 	* ## WeatherFinder
+I've not found free servise to convert city names to their coordinates ("geocoding"), so you have to make it manually, sorry.
   geo coords of Kaliningrad:<br>
-  54° 43' 12" (54° 43' 27) north latitude<br>
-  20° 31' 18" (20° 31' 44) east long<br>
+  54.4312 (54° 43' 27) north latitude<br>
+  20.3118 (20° 31' 44) east long<br>
 
