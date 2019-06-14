@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
 
+
+
+
 class App extends Component {
 
   state = {
@@ -10,11 +13,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
-  }
-
-  renderMap = () => {
-    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyD1DrDBUd6GNL2EIBCxK-K0OjkTny8kbuA&callback=initMap");
-    window.initMap = this.initMap;
   }
 
   getVenues = () => {
@@ -26,6 +24,7 @@ class App extends Component {
       ll: "54.7,20.4",
       v: "20180323"
     }
+
     axios.get(endPoint + new URLSearchParams(params))
       .then(response=>{
         this.setState({
@@ -35,6 +34,21 @@ class App extends Component {
       .catch(error=> {
         console.log('ERROR! ' + error);
       })
+  }
+
+  renderMap = () => {
+    this.loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyD1DrDBUd6GNL2EIBCxK-K0OjkTny8kbuA&callback=initMap");
+    // converting callback initMap into a window object so that script googlemaps can render it
+    window.initMap = this.initMap;
+  }
+
+  loadScript = (url) => {
+    let index = document.getElementsByTagName('script')[0];
+    let script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    script.defer = true;
+    index.parentNode.insertBefore(script, index);
   }
 
   initMap = () => {
@@ -51,16 +65,13 @@ class App extends Component {
         title: myVenue.venue.name
       });
 
-      let contentString = `${myVenue.venue.name}`;
+     let contentString = `${myVenue.venue.name}`;
 
       marker.addListener('click', function () {
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
       });
-
-
     })
-
   }
 
   render() {
@@ -70,15 +81,6 @@ class App extends Component {
       </main>
     );
   }
-}
-
-function loadScript(url) {
-  let index = document.getElementsByTagName('script')[0];
-  let script = document.createElement('script');
-  script.src = url;
-  script.async = true;
-  script.defer = true;
-  index.parentNode.insertBefore(script, index);
 }
 
 export default App;

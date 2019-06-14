@@ -29,8 +29,8 @@ Find out more about deployment here:`
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 # App directories
-	*  ## Geolocation
-    Traning with APIs.
+	*  ## Neighbourhood Map
+    Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API.
 
 	* ## WeatherFinder
   geo coords of Kaliningrad:<br>
