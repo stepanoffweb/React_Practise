@@ -1,4 +1,6 @@
-// 1Очищать state и input при нажатии на батон () 2Weather component валидация нулевых значений
+// Tasks to make:
+// 1.Clear state and input when button is pressed
+// 2.Weather component - empty values validation (undefined = '0' as text)
 
 import React from 'react';
 import Titles from './components/Titles';
