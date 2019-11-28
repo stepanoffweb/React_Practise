@@ -3,7 +3,7 @@ Training tasks on React</br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-In every app directory (in separate repository's branch), you can run:
+In every app directory (in repository's separate  branch), you can run:
 
 ### `npm instal`
 To install all needed dependences
