@@ -1,0 +1,13 @@
+p {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.posts li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.posts li a:hover {
+  text-decoration: underline;
+}
