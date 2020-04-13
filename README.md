@@ -42,4 +42,8 @@ I've not found a free servise to convert Russian cities names to their coordinat
   geo coords of Kaliningrad:<br>
   54.4312 (54° 43' 27) north latitude<br>
   20.3118 (20° 31' 44) east long<br>
-
+## Flashcard Quiz
+* Работа с API (Trivia knowledge DB)
+* Работа с хуками (useRef, useEffect, useState)
+* Grid-позиционирование
+* Вывод полученнного с сервера текста в читабельной форме ( без &gt;&lt; ...)
