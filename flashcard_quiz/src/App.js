@@ -4,7 +4,7 @@ import FlashcardList from './FlashcardList'
 import './app.css'
 
 function App() {
-  const [flashcards, setFlashcards] = useState();
+  const [flashcards, setFlashcards] = useState([]);
   const [categories, setCategories] = useState([]);
   const categoryEl = useRef()
   const amountEl = useRef()
@@ -16,10 +16,6 @@ function App() {
           setCategories(res.data.trivia_categories)
         })
     }, [])
-
-  useEffect(() => {
-
-  }, [])
 
   function decodeHtml(str) {
     const textArea = document.createElement('textarea');
