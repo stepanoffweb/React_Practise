@@ -68,7 +68,7 @@ yarn-error.log*
 **/*.psd
 **/*.txt
 **/*.pdf
-**/*.jpg
+**/*.zip
 
 /**/_backstage
 /**/package-lock.json
