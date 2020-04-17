@@ -1,1 +1,0 @@
-React + typeScript application (+ Materialize css)
