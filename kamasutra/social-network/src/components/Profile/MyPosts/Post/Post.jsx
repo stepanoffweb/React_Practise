@@ -7,6 +7,7 @@ export default function Post({message}) {
 
   return (
     <div className={s.post}>
+
       <img src="" alt=""/>
       <h5>Another Post</h5>
       <p>{message}</p>
@@ -18,8 +19,8 @@ export default function Post({message}) {
         let count = +span.innerHTML;
         count++;
         span.innerHTML = count;
-
       }} >Like</button>
+
     </div>
   )
 }
