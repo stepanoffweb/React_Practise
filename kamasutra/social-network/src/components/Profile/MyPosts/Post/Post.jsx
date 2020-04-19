@@ -2,8 +2,7 @@ import React from 'react'
 import s from './Post.module.css'
 
 
-
-export default function Post({message}) {
+export default function Post({message, handleClick, count}) {
 
   return (
     <div className={s.post}>
@@ -11,15 +10,7 @@ export default function Post({message}) {
       <img src="" alt=""/>
       <h5>Another Post</h5>
       <p>{message}</p>
-      <button onClick={(e) => {
-        console.log(e);
-        let post = e.target.parentNode;
-        !post.querySelector('span') && post.appendChild(document.createElement('span'));
-        let span = post.querySelector('span');
-        let count = +span.innerHTML;
-        count++;
-        span.innerHTML = count;
-      }} >Like</button>
+      <button onClick={handleClick} >Like {count}</button>
 
     </div>
   )
