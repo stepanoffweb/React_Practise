@@ -11,15 +11,19 @@ export default function MyPost() {
         e.target.innerHTML = `Like ${count}`;
       }
     return (
-        <div className={s.myPosts}>My Posts
-          <div>
-            <textarea name="text" id="post" cols="30" rows="5"></textarea>
-            <button>Add post</button>
-          </div>
-          <div className={s.posts}>
-          <Post message="Hi, it's my first post!" onClick={handleClick} count={count} />
-          <Post message="FUCK u, asshole!!!!" />
-          </div>
+        <div className={s.myPosts}>
+          <h3>My Posts</h3>
+            <div>
+              <div>
+                <textarea name="text" id="post" cols="30" rows="5"></textarea>
+              </div>
+              <button>Add post</button>
+            </div>
+            <div className={s.posts}>
+            <Post message="Hi, it's my first post!" onClick={handleClick} count={count} />
+            <Post message="FUCK u, asshole!!!!" />
+            </div>
+
         </div>
 
     )
