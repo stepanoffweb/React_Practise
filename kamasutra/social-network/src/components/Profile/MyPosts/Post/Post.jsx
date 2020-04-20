@@ -2,7 +2,7 @@ import React from 'react'
 import s from './Post.module.css'
 
 
-export default function Post({message, handleClick, count}) {
+export default function Post({message, onClick, count}) {
 
   return (
     <div className={s.post}>
@@ -10,7 +10,7 @@ export default function Post({message, handleClick, count}) {
       <img src="" alt=""/>
       <h5>Another Post</h5>
       <p>{message}</p>
-      <button onClick={handleClick} >Like {count}</button>
+      <button onClick={onClick} >Like {count}</button>
 
     </div>
   )

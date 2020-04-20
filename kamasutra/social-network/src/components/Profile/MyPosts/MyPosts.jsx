@@ -17,7 +17,7 @@ export default function MyPost() {
             <button>Add post</button>
           </div>
           <div className={s.posts}>
-          <Post message="Hi, it's my first post!" handleClick={handleClick} count={count} />
+          <Post message="Hi, it's my first post!" onClick={handleClick} count={count} />
           <Post message="FUCK u, asshole!!!!" />
           </div>
         </div>
