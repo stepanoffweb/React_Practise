@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
 import styles from  './navbar.module.css'
 
 
@@ -6,11 +7,11 @@ export default function Navbar() {
     return (
         <nav className={styles.nav}>
         <ul>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/dialogs">Messages</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="/music">Music</a></li>
-          <li><a href="/settings">Settings</a></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/profile">Profile</NavLink></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/dialogs">Messages</NavLink></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/news">News</NavLink></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/music">Music</NavLink></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/settings">Settings</NavLink></li>
         </ul>
       </nav>
     )

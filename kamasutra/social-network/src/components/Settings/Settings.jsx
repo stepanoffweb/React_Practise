@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Settiongs.module.css'
+import s from './Settings.module.css'
 
 export default function Settings() {
     return (
