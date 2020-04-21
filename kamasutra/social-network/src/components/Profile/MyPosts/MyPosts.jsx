@@ -5,18 +5,24 @@ import Post from './Post/Post'
 
 
 export default function MyPost({posts}) {
+  let textRef = React.createRef()
+
+  const handleClick = (e) => {
+      alert(textRef.current.value)
+      textRef.current.value = ''
+  }
 
     return (
         <div className={s.myPosts}>
           <h3>My Posts</h3>
             <div>
               <div>
-                <textarea name="text" id="post" cols="30" rows="5"></textarea>
+                <textarea ref={textRef} name="text" id="post" cols="30" rows="5"></textarea>
               </div>
-              <button>Add post</button>
+              <button onClick={handleClick} >Add post</button>
             </div>
             <div className={s.posts}>
-              {posts.map(({id, message, count, onClick}) => <Post id={id} message={message} onClick={onClick} count={count} />)     }
+              {posts.map(({id, message, likeCount, onClick, pic}) => <Post key={id} id={id} message={message} onClick={onClick} count={likeCount} pic={pic} />)     }
             </div>
 
         </div>
