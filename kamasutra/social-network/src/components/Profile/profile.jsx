@@ -5,12 +5,12 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 import style from './profile.module.css';
 
 
-export default function Profile() {
+export default function Profile({posts}) {
     return (
       <div className={style.content}>
 
         <ProfileInfo />
-        <MyPosts />
+        <MyPosts  posts={posts} />
       </div>
     )
 }

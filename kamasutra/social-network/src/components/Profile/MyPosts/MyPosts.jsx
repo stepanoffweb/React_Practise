@@ -4,17 +4,7 @@ import Post from './Post/Post'
 
 
 
-export default function MyPost() {
-      let count = 0;
-      function handleClick(e) {
-        count++;
-        e.target.innerHTML = `Like ${count}`;
-      }
-      const posts = [
-        {id: 0,message: "Hi, it's my first post!", count: 0, onClick: handleClick},
-        {id: 1,message: "You'r welcome, my friend!!!!", count: 0, onClick: handleClick},
-        {id: 2,message: "Ammmmm...", count: 0, onClick: handleClick},
-      ]
+export default function MyPost({posts}) {
 
     return (
         <div className={s.myPosts}>

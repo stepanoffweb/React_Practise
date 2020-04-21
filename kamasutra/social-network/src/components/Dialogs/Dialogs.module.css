@@ -5,14 +5,17 @@
 .dialogItems {
     padding: 10px;
 }
-.dialogItems .active {
+.dialogItems .active a{
     color: gold !important;
 }
 .dialogItem {
+    margin-top: 2px;
+    background-color: #252525;
 }
 .messages {
     padding: 10px;
 }
 .message {
-
+    margin-top: 3px;
+    background-color: purple;
 }

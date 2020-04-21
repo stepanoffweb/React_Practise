@@ -10,15 +10,15 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import styles from './App.module.css';
 
-const App = () => {
+const App = ({posts, dialogItems, messages}) => {
   return (
 <BrowserRouter>
   <div className={styles.appWrapper}>
       <Header />
       <Navbar />
       <div className="appWrapperContent">
-         <Route path='/profile' component={Profile} />
-         <Route path='/dialogs' component={Dialogs} />
+         <Route path='/profile' render={() => <Profile posts={posts} />} />
+         <Route path='/dialogs' render={() => <Dialogs dialogItems={dialogItems} messages={messages} />} />
          <Route path='/music' component={Music} />
          <Route path='/news' component={News} />
          <Route path='/settings' component={Settings} />
