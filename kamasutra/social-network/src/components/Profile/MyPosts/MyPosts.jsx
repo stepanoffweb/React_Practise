@@ -10,6 +10,12 @@ export default function MyPost() {
         count++;
         e.target.innerHTML = `Like ${count}`;
       }
+      const posts = [
+        {id: 0,message: "Hi, it's my first post!", count: 0, onClick: handleClick},
+        {id: 1,message: "You'r welcome, my friend!!!!", count: 0, onClick: handleClick},
+        {id: 2,message: "Ammmmm...", count: 0, onClick: handleClick},
+      ]
+
     return (
         <div className={s.myPosts}>
           <h3>My Posts</h3>
@@ -20,8 +26,7 @@ export default function MyPost() {
               <button>Add post</button>
             </div>
             <div className={s.posts}>
-            <Post message="Hi, it's my first post!" onClick={handleClick} count={count} />
-            <Post message="FUCK u, asshole!!!!" />
+              {posts.map(({id, message, count, onClick}) => <Post id={id} message={message} onClick={onClick} count={count} />)     }
             </div>
 
         </div>
