@@ -4,11 +4,13 @@ import Post from './Post/Post'
 
 
 
-export default function MyPost({posts}) {
+export default function MyPost({posts, addPost}) {
   let textRef = React.createRef()
 
-  const handleClick = (e) => {
-      alert(textRef.current.value)
+  const handleClick = () => {
+    let id = Date.now();
+    let message = textRef.current.value;
+    addPost(id, textRef.current.value, 0);
       textRef.current.value = ''
   }
 
