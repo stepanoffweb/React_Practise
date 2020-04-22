@@ -7,6 +7,7 @@ let state = {
       {id: 1,message: "You'r welcome, my friend!!!!", likeCount: 0, onClick:(e) => this.handleClick, pic: 'https://www.fentybeauty.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_FNT/default/dw60190d91/smear-mobile/42170_slick.jpg?sw=550'},
       {id: 2,message: "Ammmmm...", likeCount: 0, onClick: (e) => this.handleClick, pic: 'https://www.fentybeauty.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_FNT/default/dw60190d91/smear-mobile/42170_slick.jpg?sw=550'},
     ],
+    newPostText: 'XZ'
   },
   messagePage: {
     dialogItems: [
@@ -32,9 +33,14 @@ const handleClick = (e) => {
       e.target.innerHTML = `Like ${likeCount}`;
     }
 
-export const addPost = (id, postMessage, likeCount) => {
-  let newPost = {id: id, message: postMessage, likeCount: likeCount}
+export const addPost = (id, likeCount) => {
+  let newPost = {id: id, message: state.profilePage.newPostText, likeCount: likeCount}
   state.profilePage.posts.push(newPost)
+  showLetters('')
+  Rerender()
+}
+export const showLetters = (text) => {
+  state.profilePage.newPostText = text
   Rerender()
 }
 

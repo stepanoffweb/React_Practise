@@ -4,14 +4,18 @@ import Post from './Post/Post'
 
 
 
-export default function MyPost({posts, addPost}) {
+export default function MyPost({posts, addPost, showLetters, newPostText}) {
   let textRef = React.createRef()
 
   const handleClick = () => {
     let id = Date.now();
-    let message = textRef.current.value;
-    addPost(id, textRef.current.value, 0);
-      textRef.current.value = ''
+    addPost(id, 0);
+  }
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    let text = e.target.value
+    // let text = textRef.current.value;
+    showLetters(text);
   }
 
     return (
@@ -19,7 +23,7 @@ export default function MyPost({posts, addPost}) {
           <h3>My Posts</h3>
             <div>
               <div>
-                <textarea ref={textRef} name="text" id="post" cols="30" rows="5"></textarea>
+                <textarea onChange={handleChange} ref={textRef} name="text" id="post" cols="30" rows="5"  value={newPostText} />
               </div>
               <button onClick={handleClick} >Add post</button>
             </div>
