@@ -1,4 +1,4 @@
-import {Rerender} from '../render'
+import {Rerender} from '../index'
 
 let state = {
   profilePage: {
