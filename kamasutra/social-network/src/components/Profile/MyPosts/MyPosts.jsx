@@ -12,7 +12,7 @@ export default function MyPost({posts, addPost, showLetters, newPostText}) {
     addPost(id, 0);
   }
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
     showLetters(text);

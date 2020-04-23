@@ -10,7 +10,7 @@ export default function Profile({posts, addPost, showLetters, newPostText}) {
       <div className={style.content}>
 
         <ProfileInfo />
-        <MyPosts  posts={posts} addPost={addPost} showLetters={showLetters} showLetters={showLetters} newPostText={newPostText} />
+        <MyPosts  posts={posts} addPost={addPost} showLetters={showLetters} newPostText={newPostText} />
       </div>
     )
 }
