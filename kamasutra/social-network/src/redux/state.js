@@ -29,25 +29,25 @@ let store = {
     return this._state
   },
 
-  addPost(id, likeCount) {
-    console.log('addPost ', this);
-    let newPost = {id: id, message: this._state.profilePage.newPostText, likeCount: likeCount}
-    this._state.profilePage.posts.push(newPost)
-    this.showLetters('')
-    this._callSubscriber(this._state)
-  },
   _callSubscriber() {
     console.log('State changed');
-  },
-  showLetters(text) {
-    console.log('showLetters ',this);
-    this._state.profilePage.newPostText = text
-    this._callSubscriber(this._state)
   },
 
   subscribe(observer) {
     this._callSubscriber = observer
   },
+  dispatch(action) {
+    if(action.type === 'ADD_POST') {
+      let newPost = {id: action.id, message: this._state.profilePage.newPostText, likeCount: action.likeCount}
+      this._state.profilePage.posts.push(newPost)
+      this._state.profilePage.newPostText = ''
+      this._callSubscriber(this._state)
+      } else if (action.type === 'SHOW_LETTERS') {
+      this._state.profilePage.newPostText = action.text
+      this._callSubscriber(this._state)
+      }
+  },
+
 
   likeCount: 0,
   handleClick(e) {

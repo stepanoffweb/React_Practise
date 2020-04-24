@@ -4,18 +4,18 @@ import Post from './Post/Post'
 
 
 
-export default function MyPost({posts, addPost, showLetters, newPostText}) {
+export default function MyPost({posts, dispatch, newPostText}) {
   let textRef = React.createRef()
 
   const handleClick = () => {
     let id = Date.now();
-    addPost(id, 0);
+    dispatch({type:'ADD_POST', id, likeCount: 0});
   }
   const handleChange = (e) => {
     // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
-    showLetters(text);
+    dispatch({type: 'SHOW_LETTERS', text});
   }
 
     return (
