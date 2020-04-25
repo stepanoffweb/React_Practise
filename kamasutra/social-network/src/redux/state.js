@@ -1,12 +1,5 @@
-const ADD_POST = 'ADD_POST'
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const SHOW_LETTERS = 'SHOW_LETTERS'
-const SHOW_MASSAGE = 'SHOW_MASSAGE'
-
-export let createActionAddPost = (id, likeCount) => ({type: ADD_POST, id, likeCount })
-export let createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
-export let createActionAddMessage = (id, text) => ({type: ADD_MESSAGE, id, text})
-export let createActionShowMessage = (text) => ({type: SHOW_MASSAGE, text })
+import profileReducer from './profile-reducer'
+import dialogsReducer from './dialogs-reducer'
 
 let store = {
   _state: {
@@ -40,33 +33,21 @@ let store = {
     return this._state
   },
 
-  _callSubscriber() {
+
+  subscribe(observer) {
+    this._callSubscriber = observer // переопределяем функцию?, передавая из index.js как параметр rerender() и пихаем в нее state как параметр
+  },
+
+  _callSubscriber() { // это уже не то, что ты видишь :))) это - глобальный Rerender(state)
     console.log('State changed');
   },
 
-  subscribe(observer) {
-    this._callSubscriber = observer
-  },
-
   dispatch(action) {
-    if(action.type === 'ADD_POST') {
-      let newPost = {id: action.id, message: this._state.profilePage.newPostText, likeCount: action.likeCount}
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._callSubscriber(this._state)
-      } else if (action.type === 'SHOW_LETTERS') {
-      this._state.profilePage.newPostText = action.text
-      this._callSubscriber(this._state)
-      } else if (action.type === 'ADD_MESSAGE') {
-        let newMessage = {id: action.id, text: action.text}
-        this._state.messagePage.messages.push(newMessage)
-        this._state.messagePage.newMessageText = newMessage
-        this._state.messagePage.newMessageText = ''
-        this._callSubscriber(this._state)
-      }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.messagePage = dialogsReducer(this._state.messagePage, action)
 
+    this._callSubscriber(this._state)
   },
-
 
   likeCount: 0,
   handleClick(e) {

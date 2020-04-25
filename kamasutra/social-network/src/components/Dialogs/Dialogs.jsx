@@ -2,7 +2,7 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import s from './Dialogs.module.css'
-import {createActionAddMessage} from '../../redux/state'
+import {createActionAddMessage} from '../../redux/dialogs-reducer'
 
 
 const Dialogs = ({dispatch, dialogItems, messages, newMessageText}) => {
@@ -25,7 +25,7 @@ const Dialogs = ({dispatch, dialogItems, messages, newMessageText}) => {
 
                 </div>
                 <div className={s.messages}>
-                <textarea placeholder="write letters" defaultValue={newMessageText} ref={messageTextRef} onKeyPress={handleEnter} cols="30" rows="10"></textarea>
+                <textarea placeholder="write letters" defaultValue={newMessageText} ref={messageTextRef} onKeyPress={handleEnter} cols="30" rows="3"></textarea>
                 {/*{console.log(messages[0].text)}*/}
                     {messages.map(({text, id}) => <Message key={id} id={id} message={text} /> )}
                 </div>
