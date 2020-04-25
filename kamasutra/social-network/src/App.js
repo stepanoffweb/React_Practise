@@ -18,7 +18,9 @@ const App = ({state, dispatch}) => {
       <Navbar />
       <div className="appWrapperContent">
          <Route path='/profile' render={() => <Profile posts={state.profilePage.posts} dispatch={dispatch} newPostText={state.profilePage.newPostText} />} />
-         <Route path='/dialogs' render={() => <Dialogs dialogItems={state.messagePage.dialogItems} messages={state.messagePage.messages} />} />
+         <Route path='/dialogs' render={() => <Dialogs  dialogItems={state.messagePage.dialogItems}
+            messages={state.messagePage.messages}
+            newMessageText={state.messagePage.newMessageText} dispatch={dispatch} />} />
          <Route path='/music' component={Music} />
          <Route path='/news' component={News} />
          <Route path='/settings' component={Settings} />

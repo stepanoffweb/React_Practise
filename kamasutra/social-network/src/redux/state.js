@@ -1,3 +1,13 @@
+const ADD_POST = 'ADD_POST'
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const SHOW_LETTERS = 'SHOW_LETTERS'
+const SHOW_MASSAGE = 'SHOW_MASSAGE'
+
+export let createActionAddPost = (id, likeCount) => ({type: ADD_POST, id, likeCount })
+export let createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
+export let createActionAddMessage = (id, text) => ({type: ADD_MESSAGE, id, text})
+export let createActionShowMessage = (text) => ({type: SHOW_MASSAGE, text })
+
 let store = {
   _state: {
     profilePage: {
@@ -23,6 +33,7 @@ let store = {
         {text: "How is Your webDev?", id: 2},
         {text: "Who are you??", id: 3},
       ],
+      newMessageText: 'Hi'
     }
   },
   getState() {
@@ -36,6 +47,7 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer
   },
+
   dispatch(action) {
     if(action.type === 'ADD_POST') {
       let newPost = {id: action.id, message: this._state.profilePage.newPostText, likeCount: action.likeCount}
@@ -45,7 +57,14 @@ let store = {
       } else if (action.type === 'SHOW_LETTERS') {
       this._state.profilePage.newPostText = action.text
       this._callSubscriber(this._state)
+      } else if (action.type === 'ADD_MESSAGE') {
+        let newMessage = {id: action.id, text: action.text}
+        this._state.messagePage.messages.push(newMessage)
+        this._state.messagePage.newMessageText = newMessage
+        this._state.messagePage.newMessageText = ''
+        this._callSubscriber(this._state)
       }
+
   },
 
 

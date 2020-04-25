@@ -2,14 +2,17 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import s from './Dialogs.module.css'
+import {createActionAddMessage} from '../../redux/state'
 
 
-const Dialogs = ({dialogItems, messages}) => {
+const Dialogs = ({dispatch, dialogItems, messages, newMessageText}) => {
     let messageTextRef = React.createRef()
 
+// !НЕПРАВИЛЬНАЯ реализация onChange - не через измененный store, а нативными средствами браузера (полезно знать defaultValue)
     const handleEnter = (e) => {
     if (e.key === 'Enter') {
-      alert(messageTextRef.current.value)
+        dispatch(createActionAddMessage(6, e.target.value))
+      messageTextRef.current.value = newMessageText
       messageTextRef.current.value = ''
     }
   }
@@ -22,7 +25,7 @@ const Dialogs = ({dialogItems, messages}) => {
 
                 </div>
                 <div className={s.messages}>
-                <textarea ref={messageTextRef} onKeyPress={handleEnter} cols="30" rows="10"></textarea>
+                <textarea placeholder="write letters" defaultValue={newMessageText} ref={messageTextRef} onKeyPress={handleEnter} cols="30" rows="10"></textarea>
                 {/*{console.log(messages[0].text)}*/}
                     {messages.map(({text, id}) => <Message key={id} id={id} message={text} /> )}
                 </div>

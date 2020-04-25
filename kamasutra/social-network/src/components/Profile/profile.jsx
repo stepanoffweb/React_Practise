@@ -10,7 +10,7 @@ export default function Profile({posts, dispatch, newPostText}) {
       <div className={style.content}>
 
         <ProfileInfo />
-        <MyPosts  posts={posts} dispatch={dispatch} newPostText={newPostText} />
+        <MyPosts  posts={posts} dispatch={dispatch}  />
       </div>
     )
 }

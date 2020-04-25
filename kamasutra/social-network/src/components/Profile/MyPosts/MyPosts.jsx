@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
+import {createActionAddPost, createActionShowLetters} from '../../../redux/state'
 
 
 
@@ -9,13 +10,14 @@ export default function MyPost({posts, dispatch, newPostText}) {
 
   const handleClick = () => {
     let id = Date.now();
-    dispatch({type:'ADD_POST', id, likeCount: 0});
+    let likeCount = 0
+    dispatch(createActionAddPost(id, likeCount));
   }
   const handleChange = (e) => {
     // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
-    dispatch({type: 'SHOW_LETTERS', text});
+    dispatch(createActionShowLetters(text));
   }
 
     return (
@@ -23,7 +25,7 @@ export default function MyPost({posts, dispatch, newPostText}) {
           <h3>My Posts</h3>
             <div>
               <div>
-                <textarea onChange={handleChange} ref={textRef} name="text" id="post" cols="30" rows="5"  value={newPostText} />
+                <textarea placeholder="Write your message" onChange={handleChange} ref={textRef} name="text" id="post" cols="30" rows="5"  value={newPostText} />
               </div>
               <button onClick={handleClick} >Add post</button>
             </div>

@@ -16,6 +16,9 @@
     padding: 10px;
 }
 .message {
+    width: 400px;
+    -ms-word-break: break-all;
+    word-break: break-all;
     margin-top: 3px;
     background-color: purple;
 }
