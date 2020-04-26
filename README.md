@@ -23,11 +23,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 	WebGL-powered, fully open source library for making modern web maps. You may load map data from Mapbox's own service, which is 
 free until a certain level of traffic is exceeded; or you can create and host your own map data using one of the many open source 
 tools.
-!!!There are several ways to provide a token to your app, as showcased in some of the example folders:
-- Provide a mapboxApiAccessToken prop to the map component
-- Set the MapboxAccessToken environment variable (or set REACT_APP_MAPBOX_ACCESS_TOKEN if you are using Create React App)
-- Provide it in the URL, e.g ?access_token=TOKEN
-- Provide mapboxApiUrl prop to the map component to override the default mapbox API URL
+	*There are several ways to provide a token to your app, as showcased in some of the example folders:
+		- Provide a mapboxApiAccessToken prop to the map component
+		- Set the MapboxAccessToken environment variable (or set REACT_APP_MAPBOX_ACCESS_TOKEN if you are using Create React App)
+		- Provide it in the URL, e.g ?access_token=TOKEN
+		- Provide mapboxApiUrl prop to the map component to override the default mapbox API URL
 But we would recommend using something like dotenv and put your key in an untracked .env file, that will then expose it as a 
 process.env variable, with much less leaking risks.
   * Создание токенов для пользования картами
