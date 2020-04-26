@@ -15,38 +15,20 @@ Runs the app in the development mode.
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-`The project was built assuming it is hosted at the server root.
-You can control this with the homepage field in your package.json.
-For example, add this to build it for GitHub Pages:
-  "homepage" : "http://myname.github.io/myapp",
-The build folder is ready to be deployed.
-You may serve it with a static server:
-  serve -s build
-Find out more about deployment here:`
-  [https://bit.ly/CRA-deploy](https://bit.ly/CRA-deploy) 
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-# App directories
-## Neighbourhood Map
-Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
-Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
-* Add Google Maps to React without external components
-* Get venues from ForeSquare in React usin axios
-* Adding dinamic Markers to Google Maps
-* Display an InfoWindow when clicking on a Marker
-
-## WeatherFinder
-I've not found a free servise to convert Russian cities names to their coordinates ("geocoding"), so you have to make it manually, sorry.
-  geo coords of Kaliningrad:<br>
-  54.4312 (54° 43' 27) north latitude<br>
-  20.3118 (20° 31' 44) east long<br>
-## Flashcard Quiz
-* Работа с API (Trivia knowledge DB)
-* Работа с хуками (useRef, useEffect, useState)
-* Grid-позиционирование
-* Вывод полученнного с сервера текста в читабельной форме ( без &gt;&lt; ...)
-## Interactive map with markers from JSON data
-* Работа с Mapbox + react-map-gl
-* Работа с хуками (useEffect, useState)
+# Interactive map with markers from JSON data
+* сервисы в основе проекта
+  * https://open.ottawa.ca/datasets/skateboard-parks/geoservice?geometry=-77.077%2C45.154%2C-74.466%2C45.492
+  * https://www.gps-coordinates.net/
+  * https://www.npmjs.com/package/react-map-gl
+	WebGL-powered, fully open source library for making modern web maps. You may load map data from Mapbox's own service, which is 
+free until a certain level of traffic is exceeded; or you can create and host your own map data using one of the many open source 
+tools.
+!!!There are several ways to provide a token to your app, as showcased in some of the example folders:
+- Provide a mapboxApiAccessToken prop to the map component
+- Set the MapboxAccessToken environment variable (or set REACT_APP_MAPBOX_ACCESS_TOKEN if you are using Create React App)
+- Provide it in the URL, e.g ?access_token=TOKEN
+- Provide mapboxApiUrl prop to the map component to override the default mapbox API URL
+But we would recommend using something like dotenv and put your key in an untracked .env file, that will then expose it as a 
+process.env variable, with much less leaking risks.
+  * Создание токенов для пользования картами
+ https://account.mapbox.com/
