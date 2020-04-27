@@ -2,16 +2,14 @@ import React from 'react'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import s from './Dialogs.module.css'
-import {createActionAddMessage} from '../../redux/dialogs-reducer'
 
-
-const Dialogs = ({dispatch, dialogItems, messages, newMessageText}) => {
+const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage}) => {
     let messageTextRef = React.createRef()
 
 // !НЕПРАВИЛЬНАЯ реализация onChange - не через измененный store, а нативными средствами браузера (полезно знать defaultValue)
     const handleEnter = (e) => {
     if (e.key === 'Enter') {
-        dispatch(createActionAddMessage(6, e.target.value))
+        callDispatchAddMessage(6, e.target.value)
       messageTextRef.current.value = newMessageText
       messageTextRef.current.value = ''
     }

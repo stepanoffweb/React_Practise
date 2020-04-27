@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar/navbar';
 import Header from './components/Header/header';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Profile/profile';
 import Settings from './components/Settings/Settings';
 import News from './components/News/News';
@@ -18,7 +18,7 @@ const App = ({state, dispatch}) => {
       <Navbar />
       <div className="appWrapperContent">
          <Route path='/profile' render={() => <Profile posts={state.profilePage.posts} dispatch={dispatch} newPostText={state.profilePage.newPostText} />} />
-         <Route path='/dialogs' render={() => <Dialogs  dialogItems={state.messagePage.dialogItems}
+         <Route path='/dialogs' render={() => <DialogsContainer  dialogItems={state.messagePage.dialogItems}
             messages={state.messagePage.messages}
             newMessageText={state.messagePage.newMessageText} dispatch={dispatch} />} />
          <Route path='/music' component={Music} />

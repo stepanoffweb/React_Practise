@@ -1,23 +1,22 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
-import {createActionAddPost, createActionShowLetters} from '../../../redux/profile-reducer'
 
 
 
-export default function MyPost({posts, dispatch, newPostText}) {
+export default function MyPost({posts, callDispatchAddPost, callDispatchShowLetters, newPostText}) {
   let textRef = React.createRef()
 
   const handleClick = () => {
     let id = Date.now();
     let likeCount = 0
-    dispatch(createActionAddPost(id, likeCount));
+    callDispatchAddPost(id, likeCount);
   }
   const handleChange = (e) => {
     // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
-    dispatch(createActionShowLetters(text));
+    callDispatchShowLetters(text);
   }
 
     return (
