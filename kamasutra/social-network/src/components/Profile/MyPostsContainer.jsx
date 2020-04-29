@@ -1,22 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import MyPosts from './MyPosts/MyPosts'
+
 import {createActionAddPost, createActionShowLetters} from '../../redux/profile-reducer'
 
 
-
-export default function MyPostsContainer({posts, dispatch, newPostText}) {
-  let textRef = React.createRef()
-
-
-  const callDispatchAddPost = (id, likeCount) => {
-    dispatch(createActionAddPost(id, likeCount));
-  }
-  const callDispatchShowLetters = (text) => {
-    dispatch(createActionShowLetters(text));
+  const mapStateToProps = (state) => {
+   return {
+     newPostText: state.profilePage.newPostText,
+     posts: state.profilePage.posts
+   }
   }
 
-    return (
-      <MyPosts posts={posts} newPostText={newPostText} callDispatchAddPost={callDispatchAddPost} callDispatchShowLetters={callDispatchShowLetters} />
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      callDispatchShowLetters: (text) => dispatch(createActionShowLetters(text)),
+      callDispatchAddPost: (id, likeCount) => dispatch(createActionAddPost(id, likeCount))
+    }
+  }
 
-    )
-}
+const MyPostsContainer =  connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+export default MyPostsContainer

@@ -26,13 +26,13 @@ const dialogsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_MESSAGE:
-      let newMessage = {id: action.id, text: action.text}
-      state.messages.push(newMessage)
-      state.newMessageText = newMessage.text
-      state.newMessageText = ''
+      return  {...state,
+        messages: [...state.messages, {id: action.id, text: action.text}], // перезаписывает свойство с предыдущей строки на его deep copy
+        // newMessageText: newMessage.text,
+        newMessageText: ''
+          }
+    default:
       return state
-      default:
-        return state
   }
 }
 

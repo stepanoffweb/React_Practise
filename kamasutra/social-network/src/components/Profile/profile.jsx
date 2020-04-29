@@ -5,12 +5,12 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 import style from './profile.module.css';
 
 
-export default function Profile({posts, dispatch, newPostText}) {
+export default function Profile() {
     return (
       <div className={style.content}>
 
         <ProfileInfo />
-        <MyPostsContainer  posts={posts} dispatch={dispatch} newPostText={newPostText} />
+        <MyPostsContainer  />
       </div>
     )
 }

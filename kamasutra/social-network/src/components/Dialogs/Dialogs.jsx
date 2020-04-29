@@ -9,6 +9,7 @@ const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage}
 // !НЕПРАВИЛЬНАЯ реализация onChange - не через измененный store, а нативными средствами браузера (полезно знать defaultValue)
     const handleEnter = (e) => {
     if (e.key === 'Enter') {
+        e.preventDefault() // перевод строки
         callDispatchAddMessage(6, e.target.value)
       messageTextRef.current.value = newMessageText
       messageTextRef.current.value = ''

@@ -6,6 +6,7 @@ import Post from './Post/Post'
 
 export default function MyPost({posts, callDispatchAddPost, callDispatchShowLetters, newPostText}) {
   let textRef = React.createRef()
+  console.log(newPostText);
 
   const handleClick = () => {
     let id = Date.now();
