@@ -9,6 +9,7 @@ export default function Navbar() {
         <ul>
           <li><NavLink activeClassName={styles.activeLink} to="/profile">Profile</NavLink></li>
           <li><NavLink activeClassName={styles.activeLink} to="/dialogs">Messages</NavLink></li>
+          <li><NavLink activeClassName={styles.activeLink} to="/users">Users</NavLink></li>
           <li><NavLink activeClassName={styles.activeLink} to="/news">News</NavLink></li>
           <li><NavLink activeClassName={styles.activeLink} to="/music">Music</NavLink></li>
           <li><NavLink activeClassName={styles.activeLink} to="/settings">Settings</NavLink></li>

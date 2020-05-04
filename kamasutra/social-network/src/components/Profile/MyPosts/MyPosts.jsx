@@ -4,20 +4,24 @@ import Post from './Post/Post'
 
 
 
-export default function MyPost({posts, callDispatchAddPost, callDispatchShowLetters, newPostText}) {
+export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLetters, callDispatchAddLike, newPostText}) {
   let textRef = React.createRef()
-  console.log(newPostText);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     let id = Date.now();
-    let likeCount = 0
-    callDispatchAddPost(id, likeCount);
+    callDispatchAddPost(id);
   }
   const handleChange = (e) => {
     // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
     callDispatchShowLetters(text);
+  }
+  const onClick = (e) => {
+    let likeCount = +e.target.parentNode.dataset.count
+    let id = e.target.parentNode.dataset.id
+    likeCount++
+    callDispatchAddLike(id, likeCount)
   }
 
     return (
@@ -30,7 +34,7 @@ export default function MyPost({posts, callDispatchAddPost, callDispatchShowLett
               <button onClick={handleClick} >Add post</button>
             </div>
             <div className={s.posts}>
-              {posts.map(({id, message, likeCount, onClick, pic}) => <Post key={id} id={id} message={message} onClick={onClick} count={likeCount} pic={pic} />)     }
+              {posts.map(({id, message, likeCount, pic}) => <Post key={message} id={id} message={message} onClick={onClick} count={likeCount} pic={pic} />)     }
             </div>
 
         </div>
