@@ -30,8 +30,8 @@ const usersReducer = (state = initialState, action) => {
         })
       }
     case SET_USERS:
-    debugger
-    return {...state, users: [...action.state.users]}
+    // debugger
+    return {...state, users: [...action.state]}
     default:
       return state
   }

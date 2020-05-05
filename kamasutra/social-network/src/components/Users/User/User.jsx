@@ -6,7 +6,7 @@ const User = ({userId, name, status, country, city, followed, pic, handleFollow,
     return (
         <div className={s.userWrapper} data-id={userId} >
             <div className={s.userAction}>
-                <img className={s.img} src={pic} alt="avatar"/>
+                <img className={s.img} src={pic ? pic : 'https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/portrait-photography/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg'} alt="avatar"/>
                 {followed
                     ? <button className={s.btn} onClick={() => handleUnfollow(userId)} >Unfollow</button>
                     : <button className={s.btn} onClick={() => handleFollow(userId)} >Follow</button> }
