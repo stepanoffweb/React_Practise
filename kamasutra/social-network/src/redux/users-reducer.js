@@ -1,13 +1,20 @@
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'ADD_USERS'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
 
 export let createActionFollow = (userId) => ({type: FOLLOW, userId })
 export let createActionUnfollow = (userId) => ({type: UNFOLLOW, userId })
-export let createActionSetUsers = (state) => ({type: SET_USERS , state})
+export let createActionSetUsers = (users) => ({type: SET_USERS , users})
+export let createActionSetCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE , currentPage})
+export let createActionSetTotalCount = (totalUsersCount) => ({type: SET_TOTAL_COUNT, totalUsersCount})
 
 let initialState = {
-  users: []
+  users: [],
+  pageSize: 3,
+  totalUsersCount: 0,
+  currentPage: 3,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -30,8 +37,12 @@ const usersReducer = (state = initialState, action) => {
         })
       }
     case SET_USERS:
-    // debugger
-    return {...state, users: [...action.state]}
+      return {...state, users: action.users}
+    case SET_CURRENT_PAGE:
+      return {...state, currentPage: action.currentPage}
+    case SET_TOTAL_COUNT:
+      return {...state, totalUsersCount: action.totalUsersCount}
+
     default:
       return state
   }

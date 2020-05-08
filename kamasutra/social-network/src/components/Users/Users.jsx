@@ -5,28 +5,41 @@ import User from './User/User'
 
 class Users extends React.Component {
   // state = {{callFollow, callUnfollow, callSetUsers, users }} // this.props - конструктор невидим, но он - есть!
-  constructor(props) {
-    super(props);
-      alert ('New!!!')
-      axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-        this.props.callSetUsers(response.data.items)})
+  componentDidMount() {
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        this.props.callSetUsers(response.data.items)
+        this.props.callSetTotalCount(response.data.totalCount)
+      })
+      // .catch((err) => {<h1>ERROR: ${err} </h1>})
   }
 
   handleFollow = (id) => { this.props.callFollow(id)}
   handleUnfollow = (id) => {this.props.callUnfollow(id)}
+  handleClickPage = (pageNumber) => {
+    this.props.callSetCurrentPage(pageNumber)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+        this.props.callSetUsers(response.data.items)
+      })
+  }
   render() {
-    debugger
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+    let pages = []
+      let i = 1
+      while(i <= pagesCount) {
+        pages.push(i)
+        i++
+      }
+    // debugger
+
     return (
       <div className={s.usersWrapper}>
-      {/*<button onClick={this.getUsers} >GET USERS</button>*/}
+      {pages.map(p => {return <span key={p} className={this.props.currentPage === p ? s.selected : undefined} onClick={() => this.handleClickPage(p)} >{p}</span>})}
       {this.props.users.map(({id, name, status, country, city, followed, photos:{small}}) => <User key={`${id}-${status}`} userId={id} name={name} status={status}
         country={country} city={city} followed={followed} pic={small} handleFollow={this.handleFollow} handleUnfollow={this.handleUnfollow} /> )}
       <button className={s.show}>Show More</button>
       </div>
       )
-
   }
-
 }
 
 export default Users;

@@ -76,3 +76,9 @@
     background-color: purple;
     color: white;
 }
+.pagination:hover {
+    cursor: pointer;
+}
+.selected {
+    font-weight: bold;
+}
