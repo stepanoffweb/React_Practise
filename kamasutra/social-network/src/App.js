@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom'
 import Navbar from './components/Navbar/navbar';
 import Header from './components/Header/header';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
-import Profile from './components/Profile/profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import News from './components/News/News';
@@ -18,7 +18,7 @@ const App = ({state, dispatch}) => {
       <Header />
       <Navbar />
       <div className="appWrapperContent">
-         <Route path='/profile' render={() => <Profile  />} />
+         <Route path='/profile' render={() => <ProfileContainer  />} />
          <Route path='/dialogs' render={() => <DialogsContainer  />} />
          <Route path='/users' render={() => <UsersContainer />} />
          <Route path='/music' component={Music} />

@@ -76,9 +76,11 @@
     background-color: purple;
     color: white;
 }
-.pagination:hover {
+.pagination {
+    padding: 1px;
     cursor: pointer;
 }
 .selected {
     font-weight: bold;
+    font-size: 20px;
 }
