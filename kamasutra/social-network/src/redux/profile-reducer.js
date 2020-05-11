@@ -15,7 +15,7 @@ let initialState = {
     {id: 2,message: "Ammmmm...", likeCount: 0, pic: 'https://www.fentybeauty.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_FNT/default/dw60190d91/smear-mobile/42170_slick.jpg?sw=550'},
   ],
   newPostText: 'XZ',
-  profile: null
+  profile: null // чтобы первая отрисовка запустила Preloader
 }
 
 const profileReducer = (state = initialState, action) => {

@@ -14,7 +14,7 @@ export let SetFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING , isFetching
 
 let initialState = {
   users: [],
-  pageSize: 3,
+  pageSize: 20,
   totalUsersCount: 0,
   currentPage: 3,
   isFetching: false,
