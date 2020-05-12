@@ -3,20 +3,27 @@ import axios from 'axios'
 import s from './Users.module.css'
 import User from './User/User'
 import Preloader from '../Preloader/Preloader'
+import {usersAPI} from '../../api/api'
 
 class Users extends React.Component {
   // state = {{callFollow, callUnfollow, callSetUsers, users }} // this.props - конструктор невидим, но он - есть!
   componentDidMount() {
     this.props.SetFetching(!this.props.isFetching)
     // debugger
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}, {
-        withCredentials: true
-      }`).then(response => {
-        this.props.SetUsers(response.data.items)
-        this.props.SetTotalCount(response.data.totalCount)
+      usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        this.props.SetUsers(data.items)
+        this.props.SetTotalCount(data.totalCount)
     this.props.SetFetching(!this.props.isFetching)
       })
-      // .catch((err) => {<h1>ERROR: ${err} </h1>})
+  }
+
+  handleClickPage = (pageNumber) => {
+    this.props.SetCurrentPage(pageNumber)
+    this.props.SetFetching(!this.props.isFetching)
+    usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+        this.props.SetUsers(data.items)
+        this.props.SetFetching(!this.props.isFetching)
+      })
   }
 
   handleFollow = (id) => {
@@ -38,16 +45,7 @@ class Users extends React.Component {
           if(response.data.resultCode === 0){
             this.props.Unfollow(id)}
         })}
-  handleClickPage = (pageNumber) => {
-    this.props.SetCurrentPage(pageNumber)
-    this.props.SetFetching(!this.props.isFetching)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}, {
-      withCredentials: true
-    }`).then(response => {
-        this.props.SetUsers(response.data.items)
-        this.props.SetFetching(!this.props.isFetching)
-      })
-  }
+
   render() {
     let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
     let pages = []
