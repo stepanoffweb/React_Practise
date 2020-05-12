@@ -9,7 +9,9 @@ class Users extends React.Component {
   componentDidMount() {
     this.props.SetFetching(!this.props.isFetching)
     // debugger
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}, {
+        withCredentials: true
+      }`).then(response => {
         this.props.SetUsers(response.data.items)
         this.props.SetTotalCount(response.data.totalCount)
     this.props.SetFetching(!this.props.isFetching)
@@ -17,12 +19,31 @@ class Users extends React.Component {
       // .catch((err) => {<h1>ERROR: ${err} </h1>})
   }
 
-  handleFollow = (id) => { this.props.Follow(id)}
-  handleUnfollow = (id) => {this.props.Unfollow(id)}
+  handleFollow = (id) => {
+    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
+        withCredentials: true,
+        headers: {
+          "API-KEY": "85b1845a-610b-40eb-b2eb-a23834f06e57"
+        }}).then(response => {
+        if(response.data.resultCode === 0){ //из документации на API
+          this.props.Follow(id)}
+        })}
+
+  handleUnfollow = (id) => {
+    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
+          withCredentials: true,
+          headers: {
+            "API-KEY": "85b1845a-610b-40eb-b2eb-a23834f06e57"
+          }}).then(response => {
+          if(response.data.resultCode === 0){
+            this.props.Unfollow(id)}
+        })}
   handleClickPage = (pageNumber) => {
     this.props.SetCurrentPage(pageNumber)
     this.props.SetFetching(!this.props.isFetching)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}, {
+      withCredentials: true
+    }`).then(response => {
         this.props.SetUsers(response.data.items)
         this.props.SetFetching(!this.props.isFetching)
       })

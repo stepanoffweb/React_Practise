@@ -2,7 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar/navbar';
-import Header from './components/Header/header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Settings from './components/Settings/Settings';
@@ -15,7 +15,7 @@ import styles from './App.module.css';
 const App = ({state, dispatch}) => {
   return (
   <div className={styles.appWrapper}>
-      <Header />
+      <HeaderContainer />
       <Navbar />
       <div className="appWrapperContent">
          <Route path='/profile/:userId?' render={() => <ProfileContainer  />} />
