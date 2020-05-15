@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => { //oldscool technique
     return {
         callDispatchAddMessage: (id, text) => {
             dispatch(createActionAddMessage(id, text))
