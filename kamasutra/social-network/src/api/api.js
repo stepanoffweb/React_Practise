@@ -14,7 +14,9 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {return response.data})
   },
   postFollow(userId) {return instance.post(`follow/${userId}`)},
-  deleteFollow(userId) {return instance.delete(`follow/${userId}`)}
+  deleteFollow(userId) {return instance.delete(`follow/${userId}`)},
+  getAuth() {return instance.get('auth/me')},
+  getUserProfile(userId = 2) {return instance.get(`profile/${userId}`)}
 }
 
 // const baseUrl = 'https://social-network.samuraijs.com/api/1.0/'

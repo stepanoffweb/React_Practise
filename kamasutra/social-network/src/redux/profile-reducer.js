@@ -1,12 +1,22 @@
+import {usersAPI} from '../api/api'
+
 const ADD_POST = 'ADD_POST'
 const ADD_LIKE = 'ADD_LIKE'
 const SHOW_LETTERS = 'SHOW_LETTERS'
 const SET_PROFILE = 'SET_PROFILE'
 
-export let createActionAddPost = (id) => ({type: ADD_POST, id })
-export let createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
-export let createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
-export let SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
+export const createActionAddPost = (id) => ({type: ADD_POST, id })
+export const createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
+export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
+export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
+
+export const getUserProfile = (id) => {
+  return (dispatch) => {
+     usersAPI.getUserProfile(id).then(response => {
+        dispatch(SetUserProfile(response.data))
+      })
+  }
+}
 
 let initialState = {
   posts: [
