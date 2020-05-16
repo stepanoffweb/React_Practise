@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
@@ -20,7 +20,6 @@ const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage,
 
     return (
         <>
-        {!isAuth && <Redirect to={'/login'} />}
             <div className={s.dialogs}>
                 <div className={s.dialogItems}>
                    { dialogItems.map(({name, id}) => <DialogItem name={name} key={id} id={id} />)}
