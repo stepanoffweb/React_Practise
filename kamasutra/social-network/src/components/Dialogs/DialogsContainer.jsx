@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
         dialogItems: state.messagePage.dialogItems,
         messages: state.messagePage.messages,
         newMessageText: state.messagePage.newMessageText,
+        isAuth: state.auth.isAuth
     }
 }
 

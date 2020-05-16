@@ -1,10 +1,11 @@
 import React from 'react'
+
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
 
 
-export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLetters, callDispatchAddLike, newPostText}) {
+export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLetters, callDispatchAddLike, newPostText, isAuth}) {
   let textRef = React.createRef()
 
   const handleClick = (e) => {
@@ -12,7 +13,6 @@ export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLet
     callDispatchAddPost(id);
   }
   const handleChange = (e) => {
-    // console.log(showLetters);
     let text = e.target.value
     // let text = textRef.current.value;
     callDispatchShowLetters(text);
@@ -36,9 +36,7 @@ export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLet
             <div className={s.posts}>
               {posts.map(({id, message, likeCount, pic}) => <Post key={message} id={id} message={message} onClick={onClick} count={likeCount} pic={pic} />)     }
             </div>
-
         </div>
-
     )
 }
 

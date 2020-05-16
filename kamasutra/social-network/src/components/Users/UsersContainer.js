@@ -23,47 +23,22 @@ class UsersContainer extends React.Component {
 // users: []
   componentDidMount() {
       this.props.getUsers(this.props.currentPage, this.props.pageSize)
-    // this.props.SetFetching(!this.props.isFetching)
-    // // debugger
-    //   usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-    //     this.props.SetUsers(data.items)
-    //     this.props.SetTotalCount(data.totalCount)
-    // this.props.SetFetching(!this.props.isFetching)
-    //   })
 }
 
   handleClickPage = (pageNumber) => {
       this.props.getUsers(pageNumber, this.props.pageSize)
-    // this.props.SetCurrentPage(pageNumber)
-    // this.props.SetFetching(!this.props.isFetching)
-    // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-    //     this.props.SetUsers(data.items)
-    //     this.props.SetFetching(!this.props.isFetching)
-    //   })
 }
 
   handleFollow = (id) => {
       this.props.Follow(id)
-    // this.props.SetFollowingProgress(true, id)
-    // usersAPI.postFollow(id).then(response => {
-    //     if(response.data.resultCode === 0){ //из документации на API
-    //       this.props.Follow(id)}
-    // this.props.SetFollowingProgress(false, id)
-    //     })
 }
 
   handleUnfollow = (id) => {
       this.props.Unfollow(id)
-    // this.props.SetFollowingProgress(true, id)
-    // usersAPI.deleteFollow(id).then(response => {
-    //       if(response.data.resultCode === 0){
-    //         this.props.Unfollow(id)}
-    // this.props.SetFollowingProgress(false, id)
-    //     })
 }
 
           render() {
-              console.log('UsersContainer props:', {...this.props})
+              // console.log('UsersContainer props:', {...this.props})
 
               return <>
                   {this.props.isFetching ? <Preloader /> : null}

@@ -1,9 +1,11 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
+
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import s from './Dialogs.module.css'
 
-const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage}) => {
+const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage, isAuth}) => {
     let messageTextRef = React.createRef()
 
 // !НЕПРАВИЛЬНАЯ реализация onChange - не через измененный store, а нативными средствами браузера (полезно знать defaultValue)
@@ -17,7 +19,8 @@ const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage}
   }
 
     return (
-        <div>
+        <>
+        {!isAuth && <Redirect to={'/login'} />}
             <div className={s.dialogs}>
                 <div className={s.dialogItems}>
                    { dialogItems.map(({name, id}) => <DialogItem name={name} key={id} id={id} />)}
@@ -29,7 +32,7 @@ const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage}
                     {messages.map(({text, id}) => <Message key={id} id={id} message={text} /> )}
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

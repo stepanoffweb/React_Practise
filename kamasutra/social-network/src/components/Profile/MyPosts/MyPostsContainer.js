@@ -7,7 +7,7 @@ import {createActionAddPost, createActionShowLetters, createActionAddLike} from 
   const mapStateToProps = (state) => {
     return {
       newPostText: state.profilePage.newPostText,
-      posts: state.profilePage.posts
+      posts: state.profilePage.posts,
     }
   }
 
