@@ -21,4 +21,3 @@ export const usersAPI = {
 // export const getUsers = (currentPage = 2, pageSize = 20) => {
 //   return axios.get(`${baseUrl}users?page=${currentPage}&count=${pageSize}`).then(response => {return response.data})
 // }
-

@@ -1,9 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import s from './Dialogs.module.css'
 import {createActionAddMessage} from '../../redux/dialogs-reducer'
 import Dialogs from './Dialogs'
 import {connect} from 'react-redux'
-
 
 const mapStateToProps = (state) => {
     return {
