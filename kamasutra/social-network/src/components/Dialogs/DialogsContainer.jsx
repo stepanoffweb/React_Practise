@@ -1,5 +1,6 @@
 // import React from 'react'
 import {connect} from 'react-redux'
+import {compose} from 'redux'
 
 import s from './Dialogs.module.css'
 import {createActionAddMessage} from '../../redux/dialogs-reducer'
@@ -22,6 +23,9 @@ const mapDispatchToProps = (dispatch) => { //oldscool technique
     }
 }
 
-const AuthRedirectComponent = withAuthRedirect(Dialogs)
+// const AuthRedirectComponent = withAuthRedirect(Dialogs)
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+    )(Dialogs)
