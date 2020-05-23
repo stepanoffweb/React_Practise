@@ -1,19 +1,38 @@
-import {usersAPI} from '../api/api'
+import {usersAPI, profileAPI} from '../api/api'
 
 const ADD_POST = 'ADD_POST'
 const ADD_LIKE = 'ADD_LIKE'
 const SHOW_LETTERS = 'SHOW_LETTERS'
 const SET_PROFILE = 'SET_PROFILE'
+const SET_STATUS = 'SET_STATUS'
 
 export const createActionAddPost = (id) => ({type: ADD_POST, id })
 export const createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
 export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
 export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
+export const SetStatus = (status)  => ({type: SET_STATUS, status})
 
 export const getUserProfile = (id) => {
   return (dispatch) => {
      usersAPI.getUserProfile(id).then(response => {
         dispatch(SetUserProfile(response.data))
+      })
+  }
+}
+
+export const getStatus = (id) => {
+  return (dispatch) => {
+     profileAPI.getStatus(id).then(response => {
+        dispatch(SetStatus(response.data))
+      })
+  }
+}
+
+export const updateStatus = (status) => {
+  return (dispatch) => {
+     profileAPI.updateStatus(status).then(response => {
+       if(response.data.resultCode === 0)
+        dispatch(SetStatus(status))
       })
   }
 }
@@ -25,7 +44,8 @@ let initialState = {
     {id: 2,message: "Ammmmm...", likeCount: 0, pic: 'https://www.fentybeauty.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_FNT/default/dw60190d91/smear-mobile/42170_slick.jpg?sw=550'},
   ],
   newPostText: 'XZ',
-  profile: null // чтобы первая отрисовка запустила Preloader
+  profile: null, // чтобы первая отрисовка запустила Preloader
+  status: '------'
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -43,6 +63,10 @@ const profileReducer = (state = initialState, action) => {
       case SET_PROFILE:
         return {...state,
           profile: action.profile
+        }
+       case SET_STATUS:
+        return {...state,
+          status: action.status
         }
       case ADD_LIKE:
         return {...state,

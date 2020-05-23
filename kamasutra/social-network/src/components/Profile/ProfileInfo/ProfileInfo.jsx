@@ -1,10 +1,12 @@
 import React from 'react'
+
 import s from './ProfileInfo.module.css'
 import hero from './fireball_1200x226.jpg';
 import Preloader from '../../Preloader/Preloader'
+import ProfileStatus from './ProfileStatus'
 
 
-export default function ProfileInfo({profile}) {
+export default function ProfileInfo({profile, status, updateStatus}) {
     // debugger
      if (!profile) return <Preloader />
     return (
@@ -16,7 +18,10 @@ export default function ProfileInfo({profile}) {
               <img src={profile.photos.small ? profile.photos.small : "https://sun9-6.userapi.com/QqHBpjLe2yLFnKJ58RKzAm5Ha0JrcRpCI70M5A/HL3ROS3t4h0.jpg?ava=1"} alt="avatar" />
               <div className={s.descr}>About Me</div>
               <p>My Name: {profile.fullName} </p>
-              <p>Status: {profile.aboutMe}</p>
+
+              {/*<p>Status: {profile.aboutMe}</p>*/}
+            <ProfileStatus status={status} updateStatus={updateStatus} />
+
               <p>Looking For A Job: {profile.lookingForAJob ? "AbsoFuckingLootely!!!!" : "Nope...I already have a GOOD one." } <br /> {profile.lookingForAJobDescription} </p>
             </div>
         </div>

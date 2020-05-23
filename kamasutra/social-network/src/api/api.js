@@ -16,8 +16,22 @@ export const usersAPI = {
   postFollow(userId) {return instance.post(`follow/${userId}`)},
   deleteFollow(userId) {return instance.delete(`follow/${userId}`)},
   getAuth() {return instance.get('auth/me')},
-  getUserProfile(userId = 2) {return instance.get(`profile/${userId}`)}
+  getUserProfile(userId) {
+    console.warn('Obsolete method. Please use profileAPI object.') //вынос метода в отдельный объект (расширение функциональности)
+    return profileAPI.getUserProfile(userId)},
 }
+
+export const profileAPI = {
+  getUserProfile(userId) {return instance.get(`profile/${userId}`)},
+  getStatus(userId) {return instance.get(`profile/status/${userId}`)},
+  updateStatus(status) {
+    // debugger
+  return instance.put('profile/status', {status: status})}, // id сервер берет из кукисов
+}
+
+
+
+
 
 // const baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
 // export const getUsers = (currentPage = 2, pageSize = 20) => {
