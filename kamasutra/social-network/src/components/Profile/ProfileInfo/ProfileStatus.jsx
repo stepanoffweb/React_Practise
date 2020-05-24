@@ -7,7 +7,8 @@ export default class ProfileStatus extends React.Component {
     statusInputRef = React.createRef()
 
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
     activateEditMode = () => { // method as arrow function
@@ -23,12 +24,21 @@ export default class ProfileStatus extends React.Component {
         })
         this.props.updateStatus(this.statusInputRef.current.value)
     }
+    componentDidUpdate(prevProps, prevState) {
+        // console.log('DidUpdate');
+        if (prevProps.status !== this.props.status) { //если статус не успел прийти пока грузится профиль (в локальном state его не будет -> нужно синхронизировать с глобальным) а если через status: () => setState(this.props.Status)
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
 
     render() {
+        console.log('render');
         return <>
             {!this.state.editMode &&
                 <div className={s.statusText}>
-                    <p onDoubleClick={this.activateEditMode} >Status: {this.props.status}</p>
+                    <p onDoubleClick={this.activateEditMode} >Status: {this.state.status}</p>
                 </div>}
 
             {this.state.editMode &&

@@ -10,13 +10,14 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.match.params.userId
-    this.props.getUserProfile(userId=2)
-    this.props.getStatus(userId=2)
+    let userId = this.props.match.params.userId || 2
+
+    this.props.getUserProfile(userId)
+    this.props.getStatus(userId)
   }
 
   render() {
-  // console.log(this.props);
+  // console.log('render');
 
     return (
       <Profile {...this.props} profile={this.props.profile} /> //если импортнули еще где-то и передали дополнительные ...props
@@ -32,5 +33,5 @@ const mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
   withRouter,
-  withAuthRedirect
+  // withAuthRedirect
   )(ProfileContainer)
