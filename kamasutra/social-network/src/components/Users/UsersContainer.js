@@ -9,7 +9,6 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
 
 class UsersContainer extends React.Component {
-
   // state = {{Follow, Unfollow, SetUsers, SetTotalCount, SetFetching, SetFollowingProgress, users }} // this.props - конструктор невидим, но он - есть!
 //   Follow: ƒ ()
 // SetCurrentPage: ƒ ()
@@ -66,6 +65,6 @@ export default compose (
         Unfollow,
         getUsers
     }),
-    withAuthRedirect
+    // withAuthRedirect
     )(UsersContainer)
 

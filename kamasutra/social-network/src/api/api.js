@@ -29,6 +29,11 @@ export const profileAPI = {
   return instance.put('profile/status', {status: status})}, // id сервер берет из кукисов
 }
 
+export const authAPI = {
+  setLogin(login, pass, logMemo = false) {
+    return instance.post('auth/login', {email: login, password: pass, rememberMe: logMemo})
+  }
+}
 
 
 

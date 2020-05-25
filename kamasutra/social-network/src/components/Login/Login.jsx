@@ -1,14 +1,10 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
-// import {NavLink} from 'react-router-dom'
-
-
 
 
 let LoginForm = (props) => {
     const {handleSubmit} = props
     // console.log(props);
-
 
     return <form onSubmit={handleSubmit} >
         <div>
@@ -18,8 +14,8 @@ let LoginForm = (props) => {
             <Field component="input" type="text" placeholder="Password" name="password" />
         </div>
         <div>
-            <Field component="input" type="checkbox" name="rememberme" id="loginChecker" />
-            <label htmlFor="loginChecker">Remember me</label>
+            <Field component="input" type="checkbox" name="rememberme" id="loginMemo" />
+            <label htmlFor="loginMemo">Remember me</label>
         </div>
         <button>Login</button>
     </form>
@@ -31,9 +27,14 @@ LoginForm =  reduxForm({
 
 export default function Login(props) {
      let mySubmit = (formData) => {
-        console.log(formData)
+        // console.log(typeof formData.rememberme)
+        let login = formData.login
+        let pass = formData.password
+        let logMemo = formData.rememberme
+        props.getAuthData(login, pass, logMemo)
+        for (let key in formData) {
+            formData[key] = '' //для checked - приведение типов к false
+        }
     }
-
-
     return  <LoginForm onSubmit={mySubmit} />
 }
