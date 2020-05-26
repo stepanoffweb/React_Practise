@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
     return {
         dialogItems: state.messagePage.dialogItems,
         messages: state.messagePage.messages,
-        newMessageText: state.messagePage.newMessageText,
     }
 }
 
@@ -23,7 +22,6 @@ const mapDispatchToProps = (dispatch) => { //oldscool technique
     }
 }
 
-// const AuthRedirectComponent = withAuthRedirect(Dialogs)
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),

@@ -1,21 +1,29 @@
 import React from 'react'
-// import {Redirect} from 'react-router-dom'
+import {Field, reduxForm} from 'redux-form'
 
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import s from './Dialogs.module.css'
 
-const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage, isAuth}) => {
-    let messageTextRef = React.createRef()
+let DialogForm = (props) => {
+     return <form onSubmit={props.handleSubmit} >
+         <Field component='textarea' name='dialogMessage' placeholder="write letters"  cols="30" rows="3" />
+         <div>
+             <button>Send message</button>
+         </div>
+                    {/*{console.log(messages[0].text)}*/}
+     </form>
+}
 
-// !НЕПРАВИЛЬНАЯ реализация onChange - не через измененный store, а нативными средствами браузера (полезно знать defaultValue)
-    const handleEnter = (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault() // перевод строки
-        callDispatchAddMessage(6, e.target.value)
-      messageTextRef.current.value = newMessageText
-      messageTextRef.current.value = ''
-    }
+DialogForm = reduxForm({form: 'dialogform'})(DialogForm)
+
+const Dialogs = ({dialogItems, messages, callDispatchAddMessage, isAuth}) => {
+    // let messageTextRef = React.createRef()
+
+    const dialogSubmit = (values) => {
+        let id = Date.now();
+        console.log(values.dialogMessage);
+        callDispatchAddMessage(id, values.dialogMessage)
   }
 
     return (
@@ -23,11 +31,9 @@ const Dialogs = ({dialogItems, messages, newMessageText, callDispatchAddMessage,
             <div className={s.dialogs}>
                 <div className={s.dialogItems}>
                    { dialogItems.map(({name, id}) => <DialogItem name={name} key={id} id={id} />)}
-
                 </div>
                 <div className={s.messages}>
-                <textarea placeholder="write letters" defaultValue={newMessageText} ref={messageTextRef} onKeyPress={handleEnter} cols="30" rows="3"></textarea>
-                {/*{console.log(messages[0].text)}*/}
+                   <DialogForm onSubmit={dialogSubmit} />
                     {messages.map(({text, id}) => <Message key={id} id={id} message={text} /> )}
                 </div>
             </div>

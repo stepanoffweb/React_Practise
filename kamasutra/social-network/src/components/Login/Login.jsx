@@ -1,7 +1,6 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 
-
 let LoginForm = (props) => {
     const {handleSubmit} = props
     // console.log(props);

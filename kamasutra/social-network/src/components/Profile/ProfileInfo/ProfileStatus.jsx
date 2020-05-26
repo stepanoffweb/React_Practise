@@ -34,7 +34,7 @@ export default class ProfileStatus extends React.Component {
     }
 
     render() {
-        console.log('render');
+        // console.log('render');
         return <>
             {!this.state.editMode &&
                 <div className={s.statusText}>
