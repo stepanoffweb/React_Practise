@@ -2,14 +2,14 @@ import {usersAPI, authAPI} from '../api/api'
 
 const SET_USER_AUTH_DATA = 'SET_USER_AUTH_DATA'
 
-export const SetUserAuthData = (id, email, login)  => ({type: SET_USER_AUTH_DATA, data: {id, email, login}})
+export const SetUserAuthData = (id, email, login, isAuth)  => ({type: SET_USER_AUTH_DATA, payload: {id, email, login, isAuth}})
 
 export const getAuthData = () => {
   return (dispatch) => {
-    usersAPI.getAuth().then(response => {
+    authAPI.getAuth().then(response => {
         if(response.data.resultCode === 0){
             let {id, email, login} = response.data.data
-            dispatch(SetUserAuthData(id, email, login))
+            dispatch(SetUserAuthData(id, email, login, true))
         }
       })
   }
@@ -23,7 +23,15 @@ export const setLogin = (login, pass, logMemo) => {
     })
   }
 }
-
+export const setLogout = () => {
+  return (dispatch) => {
+    authAPI.setLogout().then(response => {
+        if(response.data.resultCode === 0){
+            dispatch(SetUserAuthData(null, null, null, false))
+        }
+    })
+  }
+}
 
 let initialState = {
   id: 7243,
@@ -37,8 +45,7 @@ const authReducer = (state = initialState, action) => {
   switch(action.type) {
       case SET_USER_AUTH_DATA :
         return {...state,
-          ...action.data,
-          isAuth: true //авторизация состоялась
+          ...action.payload,
         }
 
       default:

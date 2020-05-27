@@ -5,13 +5,16 @@ import Login from './Login'
 import {setLogin} from '../../redux/auth-reducer.js'
 
 function LoginContainer(props) {
+  // console.log(props);
 
   let getAuthData = (login, pass, logMemo) => {
-
     props.setLogin(login, pass, logMemo)
   }
-    // console.log(this.props);
-    return  <Login getAuthData={getAuthData} />
+    return  <Login {...props} getAuthData={getAuthData} />
   }
 
-export default connect(null, {setLogin})(LoginContainer)
+  const mapStateToProps = (state) => ({
+      isAuth: state.auth.isAuth
+    })
+
+export default connect(mapStateToProps, {setLogin})(LoginContainer)

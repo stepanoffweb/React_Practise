@@ -1,10 +1,11 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
+import {Redirect} from 'react-router-dom'
 
 import {Input} from '../common/FormsControls/FormsControls.jsx'
 import {required, maxLengthCreator} from '../../utils/validators/validators.js'
 
-const maxLength10 = maxLengthCreator(10)
+const maxLength10 = maxLengthCreator(18)
 
 let LoginForm = (props) => {
     const {handleSubmit} = props
@@ -31,15 +32,13 @@ LoginForm =  reduxForm({
 })(LoginForm)
 
 export default function Login(props) {
+    console.log(props);
      let mySubmit = (formData) => {
-        // console.log(typeof formData.rememberme)
-        let login = formData.login
-        let pass = formData.password
-        let logMemo = formData.rememberme
-        props.getAuthData(login, pass, logMemo)
+        props.getAuthData(formData.login, formData.password, formData.loginMemo)
         for (let key in formData) {
             formData[key] = '' //для checked - приведение типов к false
         }
     }
+    if (props.isAuth) { return <Redirect to={'/profile'} />}
     return  <LoginForm onSubmit={mySubmit} />
 }
