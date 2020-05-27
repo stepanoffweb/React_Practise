@@ -13,7 +13,7 @@ import Music from './components/Music/Music';
 import styles from './App.module.css';
 
 
-const App = ({state, dispatch}) => {
+const App = () => {
   return (
   <div className={styles.appWrapper}>
       <HeaderContainer />
@@ -28,7 +28,6 @@ const App = ({state, dispatch}) => {
          <Route path='/news' component={News} />
          <Route path='/settings' component={Settings} />
       </div>
-
     </div>
    );
 }

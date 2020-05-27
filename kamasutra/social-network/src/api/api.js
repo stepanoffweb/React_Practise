@@ -8,7 +8,6 @@ const instance = axios.create({
   }
 })
 
-
 export const usersAPI = {
   getUsers(currentPage = 2, pageSize = 20) {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {return response.data})
@@ -25,7 +24,6 @@ export const profileAPI = {
   getUserProfile(userId) {return instance.get(`profile/${userId}`)},
   getStatus(userId) {return instance.get(`profile/status/${userId}`)},
   updateStatus(status) {
-    // debugger
   return instance.put('profile/status', {status: status})}, // id сервер берет из кукисов
 }
 
@@ -34,9 +32,6 @@ export const authAPI = {
     return instance.post('auth/login', {email: login, password: pass, rememberMe: logMemo})
   }
 }
-
-
-
 
 // const baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
 // export const getUsers = (currentPage = 2, pageSize = 20) => {

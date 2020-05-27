@@ -5,7 +5,7 @@ import {compose} from 'redux'
 
 import Profile from './profile'
 import {getUserProfile, getStatus, updateStatus} from '../../redux/profile-reducer'
-import {withAuthRedirect} from '../../hoc/withAuthRedirect'
+// import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
 class ProfileContainer extends React.Component {
 
@@ -17,7 +17,6 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-  // console.log('render');
 
     return (
       <Profile {...this.props} profile={this.props.profile} /> //если импортнули еще где-то и передали дополнительные ...props

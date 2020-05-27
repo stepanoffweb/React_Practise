@@ -1,13 +1,11 @@
 import React from 'react'
 
 import s from './ProfileInfo.module.css'
-import hero from './fireball_1200x226.jpg';
-import Preloader from '../../Preloader/Preloader'
+import hero from './fireball_1200x226.jpg'
+import Preloader from '../../common/Preloader/Preloader'
 import ProfileStatus from './ProfileStatus'
 
-
 export default function ProfileInfo({profile, status, updateStatus}) {
-    // debugger
      if (!profile) return <Preloader />
     return (
         <div>
@@ -19,7 +17,6 @@ export default function ProfileInfo({profile, status, updateStatus}) {
               <div className={s.descr}>About Me</div>
               <p>My Name: {profile.fullName} </p>
 
-              {/*<p>Status: {profile.aboutMe}</p>*/}
             <ProfileStatus status={status} updateStatus={updateStatus} />
 
               <p>Looking For A Job: {profile.lookingForAJob ? "AbsoFuckingLootely!!!!" : "Nope...I already have a GOOD one." } <br /> {profile.lookingForAJobDescription} </p>
@@ -27,8 +24,6 @@ export default function ProfileInfo({profile, status, updateStatus}) {
         </div>
     )
 }
-
-
 // {
 //   "aboutMe": "я круто чувак 1001%",
 //   "contacts": {

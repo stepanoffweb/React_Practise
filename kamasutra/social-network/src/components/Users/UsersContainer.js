@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {compose} from 'redux'
 
 import Users from './Users'
-import Preloader from '../Preloader/Preloader'
+import Preloader from '../common/Preloader/Preloader'
 import {Follow, Unfollow, getUsers} from '../../redux/users-reducer'
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 
@@ -40,7 +40,6 @@ class UsersContainer extends React.Component {
 }
 
           render() {
-              // console.log('UsersContainer props:', {...this.props})
 
               return <>
                   {this.props.isFetching ? <Preloader /> : null}
