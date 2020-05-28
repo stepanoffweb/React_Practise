@@ -10,7 +10,7 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.match.params.userId || 2
+    let userId = this.props.match.params.userId || this.props.myId
 
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
@@ -27,6 +27,7 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  myId: state.auth.id
 })
 
 export default compose(
