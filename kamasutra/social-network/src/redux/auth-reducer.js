@@ -5,15 +5,13 @@ const SET_USER_AUTH_DATA = 'SET_USER_AUTH_DATA'
 
 export const SetUserAuthData = (id, email, login, isAuth)  => ({type: SET_USER_AUTH_DATA, payload: {id, email, login, isAuth}})
 
-export const getAuthData = () => {
-  return (dispatch) => {
-    authAPI.getAuth().then(response => {
+export const getAuthData = () => (dispatch) => {
+    return authAPI.getAuth().then(response => {
         if(response.data.resultCode === 0){
             let {id, email, login} = response.data.data
             dispatch(SetUserAuthData(id, email, login, true))
         }
       })
-  }
 }
 export const setLogin = (login, pass, logMemo) => (dispatch) => {
     authAPI.setLogin(login, pass, logMemo).then(response => {

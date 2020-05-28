@@ -34,7 +34,6 @@ LoginForm =  reduxForm({
 })(LoginForm)
 
 export default function Login(props) {
-    console.log(props);
      let mySubmit = (formData) => {
         props.getAuthData(formData.login, formData.password, formData.loginMemo)
         for (let key in formData) {
