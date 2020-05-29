@@ -17,8 +17,7 @@ export const SetTotalCount = (totalUsersCount) => ({type: SET_TOTAL_COUNT, total
 export const SetFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING , isFetching})
 export const SetFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS , isFetching, userId})
 
-export const getUsers = (currentPage, pageSize) => {
-  return (dispatch) => {
+export const getUsersData = (currentPage, pageSize) => (dispatch) => {
   dispatch(SetFetching(true))
   dispatch(SetCurrentPage(currentPage))
     // debugger
@@ -27,26 +26,24 @@ export const getUsers = (currentPage, pageSize) => {
         dispatch(SetTotalCount(data.totalCount))
         dispatch(SetFetching(false))
       })
-}}
-export const Follow = (id) => {
-  return (dispatch) => {
+}
+export const Follow = (id) => (dispatch) => {
     dispatch(SetFollowingProgress(true, id))
     usersAPI.postFollow(id).then(response => {
         if(response.data.resultCode === 0){
           dispatch(followSuccess(id))}
         dispatch(SetFollowingProgress(false, id))
         })
-}}
+}
 
-export const Unfollow = (id) => {
-  return (dispatch) => {
+export const Unfollow = (id) => (dispatch) => {
     dispatch(SetFollowingProgress(true, id))
     usersAPI.deleteFollow(id).then(response => {
           if(response.data.resultCode === 0){
             dispatch(unfollowSuccess(id))}
           dispatch(SetFollowingProgress(false, id))
         })
-}}
+}
 
 let initialState = {
   users: [],
