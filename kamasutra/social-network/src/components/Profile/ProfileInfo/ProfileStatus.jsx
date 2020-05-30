@@ -12,20 +12,17 @@ export default class ProfileStatus extends React.Component {
     }
 
     activateEditMode = () => { // method as arrow function
-        // debugger
         this.setState({
             editMode: true
         })
     }
     deactivateEditMode() { // oldschool method with bind in constructor or when it invokes
-        // debugger
         this.setState({
             editMode: false
         })
         this.props.updateStatus(this.statusInputRef.current.value)
     }
     componentDidUpdate(prevProps, prevState) {
-        // console.log('DidUpdate');
         if (prevProps.status !== this.props.status) { //если статус не успел прийти пока грузится профиль (в локальном state его не будет -> нужно синхронизировать с глобальным) а если через status: () => setState(this.props.Status)
             this.setState({
                 status: this.props.status

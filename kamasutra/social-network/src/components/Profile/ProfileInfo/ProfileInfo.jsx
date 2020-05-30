@@ -3,7 +3,7 @@ import React from 'react'
 import s from './ProfileInfo.module.css'
 import hero from './fireball_1200x226.jpg'
 import Preloader from '../../common/Preloader/Preloader'
-import ProfileStatus from './ProfileStatus'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
 export default function ProfileInfo({profile, status, updateStatus}) {
      if (!profile) return <Preloader />
@@ -17,7 +17,7 @@ export default function ProfileInfo({profile, status, updateStatus}) {
               <div className={s.descr}>About Me</div>
               <p>My Name: {profile.fullName} </p>
 
-            <ProfileStatus status={status} updateStatus={updateStatus} />
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
               <p>Looking For A Job: {profile.lookingForAJob ? "AbsoFuckingLootely!!!!" : "Nope...I already have a GOOD one." } <br /> {profile.lookingForAJobDescription} </p>
             </div>

@@ -2,40 +2,32 @@ import {usersAPI, profileAPI} from '../api/api'
 
 const ADD_POST = 'ADD_POST'
 const ADD_LIKE = 'ADD_LIKE'
-// const SHOW_LETTERS = 'SHOW_LETTERS'
 const SET_PROFILE = 'SET_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 
 export const createActionAddPost = (id, postText) => ({type: ADD_POST, id, postText })
-// export const createActionShowLetters = (text) => ({type: SHOW_LETTERS, text })
 export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
 export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
 export const SetStatus = (status)  => ({type: SET_STATUS, status})
 
-export const getUserProfile = (id) => {
-  return (dispatch) => {
+export const getUserProfile = (id) => (dispatch) => {
      usersAPI.getUserProfile(id).then(response => {
         dispatch(SetUserProfile(response.data))
       })
   }
-}
 
-export const getStatus = (id) => {
-  return (dispatch) => {
+export const getStatus = (id) => (dispatch) => {
      profileAPI.getStatus(id).then(response => {
         dispatch(SetStatus(response.data))
       })
   }
-}
 
-export const updateStatus = (status) => {
-  return (dispatch) => {
+export const updateStatus = (status) => (dispatch) => {
      profileAPI.updateStatus(status).then(response => {
        if(response.data.resultCode === 0)
         dispatch(SetStatus(status))
       })
   }
-}
 
 let initialState = {
   posts: [
@@ -54,10 +46,6 @@ const profileReducer = (state = initialState, action) => {
         return {...state,
         posts: [...state.posts, {id: action.id, message: action.postText}]
         }
-      // case SHOW_LETTERS:
-      //   return {...state,
-      //     newPostText: action.text
-      //   }
       case SET_PROFILE:
         return {...state,
           profile: action.profile

@@ -14,6 +14,7 @@ class ProfileContainer extends React.Component {
     if (!userId) {this.props.history.push('/login')} //избыточно для примера (уже обернуто withAuthRedirect)
 
     this.props.getUserProfile(userId)
+  // debugger
     this.props.getStatus(userId)
   }
 
