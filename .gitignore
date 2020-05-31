@@ -49,7 +49,7 @@ Temporary Items
 /coverage
 
 # production
-/build
+**/build
 /dist/
 
 

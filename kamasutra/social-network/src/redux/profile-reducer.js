@@ -1,11 +1,13 @@
-import {usersAPI, profileAPI} from '../api/api'
+import { usersAPI, profileAPI } from '../api/api'
 
 const ADD_POST = 'ADD_POST'
 const ADD_LIKE = 'ADD_LIKE'
 const SET_PROFILE = 'SET_PROFILE'
 const SET_STATUS = 'SET_STATUS'
+const DELETE_POST = 'DELETE_POST'
 
 export const createActionAddPost = (id, postText) => ({type: ADD_POST, id, postText })
+export const createActionDeletePost = (id) => ({type: DELETE_POST, id })
 export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
 export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
 export const SetStatus = (status)  => ({type: SET_STATUS, status})
@@ -36,7 +38,7 @@ let initialState = {
     {id: 2,message: "Ammmmm...", likeCount: 0, pic: 'https://www.fentybeauty.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_FNT/default/dw60190d91/smear-mobile/42170_slick.jpg?sw=550'},
   ],
   profile: null, // чтобы первая отрисовка запустила Preloader
-  status: '------'
+  status: 'Server is not available'
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -46,6 +48,11 @@ const profileReducer = (state = initialState, action) => {
         return {...state,
         posts: [...state.posts, {id: action.id, message: action.postText}]
         }
+      case DELETE_POST :
+        return {...state,
+        posts: state.posts.filter(post => post.id != action.id)
+        }
+
       case SET_PROFILE:
         return {...state,
           profile: action.profile
