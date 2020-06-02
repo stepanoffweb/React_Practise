@@ -12,24 +12,24 @@ export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, lik
 export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
 export const SetStatus = (status)  => ({type: SET_STATUS, status})
 
-export const getUserProfile = (id) => (dispatch) => {
-     usersAPI.getUserProfile(id).then(response => {
-        dispatch(SetUserProfile(response.data))
-      })
-  }
+export const getUserProfile = (id) => async (dispatch) => {
+  let response = await usersAPI.getUserProfile(id)
 
-export const getStatus = (id) => (dispatch) => {
-     profileAPI.getStatus(id).then(response => {
-        dispatch(SetStatus(response.data))
-      })
-  }
+  dispatch(SetUserProfile(response.data))
+}
 
-export const updateStatus = (status) => (dispatch) => {
-     profileAPI.updateStatus(status).then(response => {
-       if(response.data.resultCode === 0)
-        dispatch(SetStatus(status))
-      })
-  }
+export const getStatus = (id) => async (dispatch) => {
+  let response = await profileAPI.getStatus(id)
+
+  dispatch(SetStatus(response.data))
+}
+
+export const updateStatus = (status) => async (dispatch) => {
+  let response = await profileAPI.updateStatus(status)
+
+  if(response.data.resultCode === 0)
+    dispatch(SetStatus(status))
+}
 
 let initialState = {
   posts: [

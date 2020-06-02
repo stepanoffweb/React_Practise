@@ -9,8 +9,10 @@ const instance = axios.create({
 })
 
 export const usersAPI = {
-  getUsers(currentPage = 2, pageSize = 20) {
-    return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {return response.data})
+  async getUsers(currentPage = 2, pageSize = 20) {
+    let response = await instance.get(`users?page=${currentPage}&count=${pageSize}`)
+
+    return response.data
   },
   postFollow(userId) {return instance.post(`follow/${userId}`)},
   deleteFollow(userId) {return instance.delete(`follow/${userId}`)},
@@ -34,8 +36,3 @@ export const authAPI = {
    setLogout() {return instance.delete('auth/login')}
 
 }
-
-// const baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
-// export const getUsers = (currentPage = 2, pageSize = 20) => {
-//   return axios.get(`${baseUrl}users?page=${currentPage}&count=${pageSize}`).then(response => {return response.data})
-// }

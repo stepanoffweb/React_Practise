@@ -25,23 +25,23 @@ export default function ProfileInfo({profile, status, updateStatus}) {
     )
 }
 // {
-//   "aboutMe": "я круто чувак 1001%",
+//   "aboutMe": "...",
 //   "contacts": {
 //     "facebook": "facebook.com",
 //     "website": null,
-//     "vk": "vk.com/dimych",
-//     "twitter": "https://twitter.com/@sdf",
-//     "instagram": "instagra.com/sds",
+//     "vk": "vk.com/...",
+//     "twitter": "https://twitter.com/@...",
+//     "instagram": "instagra.com/...",
 //     "youtube": null,
 //     "github": "github.com",
 //     "mainLink": null
 //   },
 //   "lookingForAJob": true,
-//   "lookingForAJobDescription": "не ищу, а дурачусь",
-//   "fullName": "samurai d new name",
-//   "userId": 2,
+//   "lookingForAJobDescription": "...",
+//   "fullName": "...",
+//   "userId": 7243,
 //   "photos": {
-//     "small": "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
-//     "large": "https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0"
+//     "small": "https://social-network.samuraijs.com/activecontent/images/users/7243/user-small.jpg?v=0",
+//     "large": "https://social-network.samuraijs.com/activecontent/images/users/7243/user.jpg?v=0"
 //   }
 // }
