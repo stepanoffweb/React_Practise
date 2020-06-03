@@ -26,5 +26,5 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 ## Interactive map with markers from JSON data (map_gl branch)
 * Работа с Mapbox + react-map-gl
 * Работа с хуками (useEffect, useState)
-## Social Network (soc-network)
+## Social Network (soc-net)
 * Развивающийся проект социальной сети с базовым функционалом и кастомной стилизацией 
