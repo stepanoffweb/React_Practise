@@ -4,13 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 In every app directory (in repository's separate  branch), you can run:
-
-### `npm instal`
-To install all needed dependences
-
-### `npm start`
-Runs the app in the development mode.
-
+* `npm instal` - To install all needed dependences
+* `npm start` - Runs the app in the development mode.
 
 # App directories
 ## Neighbourhood Map (branch neighbourhood-map)
