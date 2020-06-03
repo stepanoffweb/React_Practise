@@ -13,7 +13,7 @@ Runs the app in the development mode.
 
 
 # App directories
-## Neighbourhood Map
+## Neighbourhood Map (branch neighbourhood-map)
 Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
 Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Add Google Maps to React without external components
@@ -22,10 +22,8 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Display an InfoWindow when clicking on a Marker
 
 ## WeatherFinder (branch weather)
-I've not found a free servise to convert Russian cities names to their coordinates ("geocoding"), so you have to make it manually, sorry.
-  geo coords of Kaliningrad:<br>
-  54.4312 (54° 43' 27) north latitude<br>
-  20.3118 (20° 31' 44) east long<br>
+* Работа с API
+* Операции с DOM
 ## Flashcard Quiz
 * Работа с API (Trivia knowledge DB)
 * Работа с хуками (useRef, useEffect, useState)
