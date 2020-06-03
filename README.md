@@ -1,8 +1,8 @@
 # WeatherFinder
 App on React to find out the weather in the geographic area</br>
-clone the repo branch </br>
-`npm install`</br>
-`npm start`</br>
+  - clone the repo branch </br>
+  - `npm install`</br>
+  - `npm start`</br>
 
 I've not found free servise to convert city names to their coordinates ("geocoding"), so you have to make it manually, sorry.
   geo coords of Kaliningrad:<br>
