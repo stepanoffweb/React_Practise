@@ -1,20 +1,3 @@
-# React_Practise
-Training tasks on React</br>
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-In every app directory (in repository's separate  branch), you can run:
-
-### `npm instal`
-To install all needed dependences
-
-### `npm start`
-Runs the app in the development mode.
-
-### `npm run build`
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
 # Interactive map with markers from JSON data
 * сервисы в основе проекта
   * https://open.ottawa.ca/datasets/skateboard-parks/geoservice?geometry=-77.077%2C45.154%2C-74.466%2C45.492
@@ -32,3 +15,8 @@ tools.<br>
 But we would recommend using something like dotenv and put your key in an untracked .env file, that will then expose it as a 
 process.env variable, with much less leaking risks.
  
+## How does it work:
+  - clone/download the repo branch </br>
+  - go into /map_gl
+  - `npm install`</br>
+  - `npm start`</br>
