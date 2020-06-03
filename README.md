@@ -15,7 +15,7 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Get venues from ForeSquare in React usin axios
 * Adding dinamic Markers to Google Maps
 * Display an InfoWindow when clicking on a Marker
-## WeatherFinder (weatherbranch)
+## WeatherFinder (weather branch)
 * Работа с API
 * Операции с DOM
 ## Flashcard Quiz (flashcards branch)
@@ -26,5 +26,5 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 ## Interactive map with markers from JSON data (map_gl branch)
 * Работа с Mapbox + react-map-gl
 * Работа с хуками (useEffect, useState)
-## Social Network (soc-net)
+## Social Network (soc-net branch)
 * Развивающийся проект социальной сети с базовым функционалом и кастомной стилизацией 
