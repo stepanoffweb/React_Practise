@@ -1,6 +1,6 @@
 # WeatherFinder
-App on React to find out the weather in the geographic area</br>  
- 
+Symple React App finds the weather in the geographic area</br>  
+ * API  
 ## How does it work:
   - clone/download the repo branch </br>
   - go into /weather_finder
