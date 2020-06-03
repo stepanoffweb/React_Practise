@@ -1,12 +1,18 @@
 # WeatherFinder
 App on React to find out the weather in the geographic area</br>  
+ 
+## How does it work:
+  - clone/download the repo branch </br>
+  - go into /weather_finder
+  - `npm install`</br>
+  - `npm start`</br>
 
 I've not found free servise to convert city names to their coordinates ("geocoding"), so you have to make it manually, sorry.
   geo coords of Kaliningrad:<br>
   54.4312 (54° 43' 27) north latitude<br>
   20.3118 (20° 31' 44) east long<br>
   
- ```API Base URL: http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
+  ```API Base URL: http://api.weatherunlocked.com/ or https://api.weatherunlocked.com/
  api/{LocalWeatherType}/{Location}?app_id={APP_ID}&app_key={APP_KEY}
  {LocalWeatherType} can be "current" or "forecast" Example:
  http://api.weatherunlocked.com/api/current/51.50,-0.12?app_id={APP_ID}&app_key={APP_KEY}
@@ -20,10 +26,4 @@ I've not found free servise to convert city names to their coordinates ("geocodi
  http://api.weatherunlocked.com/api/forecast/us.33109?app_id=APP_ID&app_key=APP_KEY
  and local language :
  Example: Forecast Weather for NY with Italian descriptions
- http://api.weatherunlocked.com/api/forecast/40.7,-74?lang=it&app_id=APP_ID&app_key=APP_KEY```
- 
-## How does it work:
-  - clone/download the repo branch </br>
-  - go into /weather_finder
-  - `npm install`</br>
-  - `npm start`</br>
+ http://api.weatherunlocked.com/api/forecast/40.7,-74?lang=it&app_id=APP_ID&app_key=APP_KEY ```
