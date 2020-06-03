@@ -25,7 +25,13 @@ export const profileAPI = {
   getUserProfile(userId) {return instance.get(`profile/${userId}`)},
   getStatus(userId) {return instance.get(`profile/status/${userId}`)},
   updateStatus(status) {
-  return instance.put('profile/status', {status: status})}, // id сервер берет из кукисов
+    return instance.put('profile/status', {status: status})}, // id сервер берет из кукисов
+  pushPhoto(file) {
+    const formData = new FormData()
+    formData.append('image', file)
+    return instance.put('profile/photo', formData, {
+        headers: {'Content-Type': 'multipart/form-data'}}
+        )},
 }
 
 export const authAPI = {

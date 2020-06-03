@@ -5,12 +5,14 @@ const ADD_LIKE = 'ADD_LIKE'
 const SET_PROFILE = 'SET_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 const DELETE_POST = 'DELETE_POST'
+const SET_PFOTO_SUCCESS = 'SET_PFOTO_SUCCESS'
 
 export const createActionAddPost = (id, postText) => ({type: ADD_POST, id, postText })
 export const createActionDeletePost = (id) => ({type: DELETE_POST, id })
 export const createActionAddLike = (id, likeCount)  => ({type: ADD_LIKE, id, likeCount })
 export const SetUserProfile = (profile)  => ({type: SET_PROFILE, profile})
 export const SetStatus = (status)  => ({type: SET_STATUS, status})
+export const SetPhotoSuccess = (photos)  => ({type: SET_PFOTO_SUCCESS, photos})
 
 export const getUserProfile = (id) => async (dispatch) => {
   let response = await usersAPI.getUserProfile(id)
@@ -29,6 +31,13 @@ export const updateStatus = (status) => async (dispatch) => {
 
   if(response.data.resultCode === 0)
     dispatch(SetStatus(status))
+}
+
+export const pushPhoto = (file) => async (dispatch) => {
+  let response = await profileAPI.pushPhoto(file)
+
+  if(response.data.resultCode === 0)
+    dispatch(SetPhotoSuccess(response.data.data.photos))
 }
 
 let initialState = {
@@ -57,7 +66,7 @@ const profileReducer = (state = initialState, action) => {
         return {...state,
           profile: action.profile
         }
-       case SET_STATUS:
+      case SET_STATUS:
         return {...state,
           status: action.status || state.status
         }
@@ -65,6 +74,10 @@ const profileReducer = (state = initialState, action) => {
         return {...state,
         posts: [...state.posts],
         // posts.map((post) => {post.id === action.id ? post.likeCount++ : ''})
+        }
+      case SET_PFOTO_SUCCESS:
+        return {...state,
+          profile: {...state.profile, photos: action.photos}
         }
       default:
         return state
