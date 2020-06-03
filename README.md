@@ -21,7 +21,7 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Adding dinamic Markers to Google Maps
 * Display an InfoWindow when clicking on a Marker
 
-## WeatherFinder
+## WeatherFinder (branch weather)
 I've not found a free servise to convert Russian cities names to their coordinates ("geocoding"), so you have to make it manually, sorry.
   geo coords of Kaliningrad:<br>
   54.4312 (54° 43' 27) north latitude<br>
