@@ -34,3 +34,5 @@ I've not found a free servise to convert Russian cities names to their coordinat
 ## Interactive map with markers from JSON data
 * Работа с Mapbox + react-map-gl
 * Работа с хуками (useEffect, useState)
+## Social Network (soc-network)
+* Развивающийся проект социальной сети с базовым функционалом и кастомной стилизацией 
