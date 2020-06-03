@@ -1,7 +1,3 @@
-// Tasks to make:
-// 1.Clear state and input when button is pressed
-// 2.Weather component - empty values validation (undefined = '0' as text)
-
 import React from 'react';
 import {Titles} from './components/Titles';
 import {Form} from './components/Form';
@@ -16,14 +12,14 @@ class App extends React.Component {
     e.preventDefault();
 
     const first_param = e.target.elements.first_param.value,
-        second_param = e.target.elements.second_param.value;
+          second_param = e.target.elements.second_param.value;
 
     if(first_param && second_param) {
     let separator = (/[0-9]./.test(+first_param)) ? ',' : '.';
 
     // here we need to convert the latitude and the longitude to the town/ country names  (Russian post indexes are not available)
     const api_call = await fetch(`${BASE_PATH}/${LOCAL_WEATHER_TYPE}/${first_param}${separator}${second_param}?lang=it&app_id=${APP_ID}&app_key=${API_KEY}`),
-        data = await api_call.json();
+          data = await api_call.json();
         this.setState({
             cloudtotal: data.cloudtotal_pct,
             feelslike: data.feelslike_c,
@@ -37,14 +33,6 @@ class App extends React.Component {
         });
         } else {
             this.setState({
-                // cloudtotal: undefined,
-                // feelslike: undefined,
-                // humidity: undefined,
-                // seaLevelPressure:  undefined,
-                // temperature: undefined,
-                // winddir_compass: undefined,
-                // windSpeed: undefined,
-                // description: undefined,
                 error: "Enter the coords, please!",
             });
         }
