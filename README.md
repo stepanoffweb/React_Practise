@@ -20,6 +20,6 @@
  
 ## How does it work:
   - clone/download the repo branch </br>
-  - go into /weather_finder
+  - go into /social-network
   - `npm install`</br>
   - `npm start`</br>
