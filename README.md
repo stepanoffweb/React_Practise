@@ -20,11 +20,10 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Get venues from ForeSquare in React usin axios
 * Adding dinamic Markers to Google Maps
 * Display an InfoWindow when clicking on a Marker
-
 ## WeatherFinder (branch weather)
 * Работа с API
 * Операции с DOM
-## Flashcard Quiz
+## Flashcard Quiz (branch flashcards)
 * Работа с API (Trivia knowledge DB)
 * Работа с хуками (useRef, useEffect, useState)
 * Grid-позиционирование
