@@ -1,6 +1,6 @@
     import React from 'react';
 
-const Weather = ({cloudtotal, feelslike, humidity, seaLevelPressure, temperature, winddir_compass, windSpeed, description, error}) =>
+export const Weather = ({cloudtotal, feelslike, humidity, seaLevelPressure, temperature, winddir_compass, windSpeed, description, error}) =>
     <div className="weather__info">
         {+cloudtotal &&
             <p className="weather__key">Index cloudy: <span className="weather__value">{ cloudtotal }</span></p>}
@@ -19,7 +19,4 @@ const Weather = ({cloudtotal, feelslike, humidity, seaLevelPressure, temperature
         {description &&
             <p className="weather__key">Conditions: <span className="weather__value">{ description }</span></p>}
         <p className="weather__error">{ error }</p>
-    </div>
-    ;
-
-export default Weather;
+    </div> ;

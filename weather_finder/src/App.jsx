@@ -3,9 +3,9 @@
 // 2.Weather component - empty values validation (undefined = '0' as text)
 
 import React from 'react';
-import Titles from './components/Titles';
-import Form from './components/Form';
-import Weather from './components/Weather';
+import {Titles} from './components/Titles';
+import {Form} from './components/Form';
+import {Weather} from './components/Weather';
 import {API_KEY, APP_ID, BASE_PATH, LOCAL_WEATHER_TYPE} from './constants';
 
 class App extends React.Component {
@@ -54,9 +54,7 @@ class App extends React.Component {
     const {cloudtotal, feelslike, humidity, seaLevelPressure, temperature, winddir_compass,
      windSpeed, description, error} = this.state;
 
-    return (
-        <div>
-            <div className="wrapper">
+    return  <div className="wrapper">
                 <div className="main">
                     <div className="container">
                         <div className="row">
@@ -79,7 +77,7 @@ class App extends React.Component {
                     </div>
                 </div>
             </div>
-      </div>);
+
   }
 };
 

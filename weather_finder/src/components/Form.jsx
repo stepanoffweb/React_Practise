@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({getWeather}) =>
+export const Form = ({getWeather}) =>
         <div>
             <h1>Local weather</h1>
             <form onSubmit={getWeather}>
@@ -12,4 +12,4 @@ const Form = ({getWeather}) =>
         </div>
         ;
 
-export default Form;
+
