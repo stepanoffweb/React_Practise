@@ -22,7 +22,7 @@ class App extends Component {
       ll: "54.7,20.4",
       v: "20180323",
     }
-// learn more about axios.get arguments and URLSearchParams- what does this concatenation mean?
+// learn more about axios.get arguments and URLSearchParams
     axios.get(endPoint + new URLSearchParams(params))
       .then(response=>{
         this.setState({
