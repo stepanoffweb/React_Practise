@@ -1,6 +1,6 @@
 # WeatherFinder
 App on React to find out the weather in the geographic area</br>
-clone the repo branch
+clone the repo branch </br>
 `npm install`</br>
 `npm start`</br>
 
