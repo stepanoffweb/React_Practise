@@ -1,5 +1,6 @@
-# React_Practise
-Training tasks on React</br>
+# WeatherFinder
+App on React to find out the weather in the geographic area</br>
+clone the repo branch
 `npm install`</br>
 `npm start`</br>
 
