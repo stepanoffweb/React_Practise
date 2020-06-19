@@ -16,6 +16,7 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Adding dinamic Markers to Google Maps
 * Display an InfoWindow when clicking on a Marker
 ## WeatherFinder (weather branch)
+Актуальная сводка погоды по клику. Необходимо ввести либо географические координаты места, либо страну (US/UK) и z-code|индекс
 * Работа с API
 * Операции с DOM
 ## Flashcard Quiz (flashcards branch)
@@ -25,6 +26,10 @@ Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
 * Вывод полученнного с сервера текста в читабельной форме ( без &gt;&lt; ...)
 ## Interactive map with markers from JSON data (map_gl branch)
 * Работа с Mapbox + react-map-gl
+* Работа с хуками (useEffect, useState)
+## Currency Converter (currency_converter branch)
+Автоматический расчет конвертации по валютным парам при введении исходной суммы в одно из полей и выборе базовой и выходной валют по актуальным на момент расчета данным European Central Bank.
+* Работа с API (http://exchangeratesapi.io/)
 * Работа с хуками (useEffect, useState)
 ## Social Network (soc-net branch)
 * Развивающийся проект социальной сети с базовым функционалом и кастомной стилизацией 
