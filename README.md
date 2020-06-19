@@ -1,26 +1,20 @@
 # React_Practise
-Training tasks on React</br>
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-In every app directory (in repository's separate  branch), you can run:
-* `npm instal` - To install all needed dependences
-* `npm start` - Runs the app in the development mode.
-
-# App directories
+Приложения с законченным функционалом различной сложности на ReactJS.
+# App directories (каждое приложение - в своей git branch)
 ## Neighbourhood Map (neighbourhood-map branch)
 Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
-Traning with APIs. Using Vanilla JavaScript + Google Maps API + FourSquare API:
-* Add Google Maps to React without external components
+Used Google Maps API + FourSquare API:
+* Add Google Maps to React App without external components
 * Get venues from ForeSquare in React usin axios
 * Adding dinamic Markers to Google Maps
 * Display an InfoWindow when clicking on a Marker
 ## WeatherFinder (weather branch)
-Актуальная сводка погоды по клику. Необходимо ввести либо географические координаты места, либо страну (US/UK) и z-code|индекс
+Актуальная сводка погоды по клику. Необходимо ввести либо географические координаты места, либо страну (US/UK) и zipcode|postcode
 * Работа с API
 * Операции с DOM
 ## Flashcard Quiz (flashcards branch)
-* Работа с API (Trivia knowledge DB)
+Получение данных с сервера для формирования и последовательного вывода опросных страниц в браузере. Сбор ответов и отправка их на сервер.
+* Работа с API (Firebase DB)
 * Работа с хуками (useRef, useEffect, useState)
 * Grid-позиционирование
 * Вывод полученнного с сервера текста в читабельной форме ( без &gt;&lt; ...)
