@@ -6,7 +6,6 @@ import {Paginator} from '../common/Paginator/Paginator'
 
 const Users = ({followingInProgress, handleFollow, handleUnfollow, totalUsersCount, pageSize, handleClickPage, currentPage, users, ...props }) => {
 
-
   return <div className={s.usersWrapper}>
       <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize} handleClickPage={handleClickPage} currentPage={currentPage} />
 

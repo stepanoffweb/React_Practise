@@ -3,7 +3,6 @@ import {Field, reduxForm} from 'redux-form'
 
 import {required, maxLengthCreator} from '../../../utils/validators/validators.js'
 import {Textarea} from '../../common/FormsControls/FormsControls.jsx'
-
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
@@ -23,7 +22,12 @@ let PostForm = (props) => {
 
 PostForm = reduxForm({form: 'postform'})(PostForm)
 
-export default function MyPosts({posts, callDispatchAddPost, callDispatchShowLetters, callDispatchAddLike, isAuth}) {
+export default function MyPosts(props) {
+  let {posts, callDispatchAddPost, callDispatchShowLetters, callDispatchAddLike, isAuth} = props
+  // window.props = []
+  // window.props.push(props)
+  console.log("RENDER");
+  // console.log( window.props[1]);
 
   const mySubmit = (formData) => {
     let id = Date.now();
