@@ -34,7 +34,6 @@
 }
 
 .product-item {
-  box-sizing: border-box;
   position: relative;
   top: -4px;
   width: 312px;
@@ -43,6 +42,7 @@
   margin-bottom: 80px;
   background: transparent;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma",  sans-serif;
+  overflow: hidden;
 }
 .product-item:hover {
   cursor: pointer;
@@ -88,12 +88,9 @@
   bottom: -95px;
   left: -25px;
   width: 370px;
-  height: 370px;
-
 }
 .product__item-text {
 position: absolute;
-box-sizing: border-box;
 display: flex;
 flex-direction: column;
 width: 100%;

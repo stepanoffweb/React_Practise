@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container">
 
-    <section className="section">
+      <section className="section">
        <h1 className="title">Ты сегодня покормил кота?</h1>
        <div className="products-wrapper">
 
