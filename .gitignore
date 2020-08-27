@@ -52,6 +52,8 @@ Temporary Items
 **/build
 /dist/
 
+/0_React_Interview/
+
 
 # misc
 **/.env
