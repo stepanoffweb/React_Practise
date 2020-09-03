@@ -66,7 +66,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #2ea8e6;
+  background-color: #1698d9;
   font-size: 42px;
   line-height: 22px;
 }
@@ -81,18 +81,51 @@
   left: -4px;
   top: -4px;
 }
-.bottom {
+.fill-bottom {
   position: relative;
+  fill: #1698d9;
 }
 
-.top {
+.fill-top {
   position: absolute;
+  fill: #fff;
 }
+.product-item:hover .fill-bottom {
+  fill: #2ea8e6;
+}
+.product-item:hover .product__item-circle {
+  background-color: #2ea8e6;
+}
+.product-item.disabled .product__item-description {
+  color: #ffff66;
+}
+.product-item.disabled .product__item-circle {
+  background-color: #b3b3b3;
+}
+.product-item.disabled .fill-bottom {
+  fill: #b3b3b3;
+}
+.product-item.disabled {
+  cursor: default;
+}
+.product-item.selected .product__item-circle {
+  background-color: #d91667;
+}
+.product-item.selected .fill-bottom {
+  fill: #d91667;
+}
+.product-item.selected .product__item-description {
+  color: #fff;
+}
+
 .product__item-img {
   position: absolute;
   bottom: -95px;
   left: -25px;
   width: 370px;
+}
+.product__item-img.disabled {
+  opacity: .5;
 }
 .product__item-text {
 position: absolute;
@@ -104,20 +137,24 @@ top: 4px;
 left: 4px;
 padding-left: 44px;
 border-bottom-left-radius: 15px;
+color: #000;
 overflow: hidden;
+}
+.product-item.disabled .product__item-text {
+  color: rgba(179, 179, 179, 0.5);
 }
 .product__item-subtext {
   margin-top: 18px;
   margin-bottom: 10px;
   font-size: 16px;
-  color: rgb(102, 102, 102);
+  color: #666;
   line-height: 1.2;
   text-align: left;
 }
 
 .product__item-name {
   margin-bottom: 2px;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
   font-size: 48px;
   line-height: 1.2;
   font-weight: bold;
@@ -126,7 +163,7 @@ overflow: hidden;
 
 .product__item-subname {
   margin-bottom: 15px;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
   font-size: 24px;
   line-height: .8;
   font-weight: bold;
@@ -134,11 +171,15 @@ overflow: hidden;
 }
 
 .product__item-volume {
-  color: rgb(102, 102, 102);
+  color: #666;
   font-size: 14px;
   line-height: 16px;
     font-weight: normal;
     text-align: left;
+}
+.product__item-volume.disabled,
+.product__item-subtext.disabled {
+    color: rgba(179, 179, 179, 0.5);
 }
 
 .number {

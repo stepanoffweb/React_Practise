@@ -27,33 +27,6 @@ ReactDOM.render(
 // Результат: ссылка на страницу, которая корректно отображается на любых
 // современных десктопных компьютерах, смартфонах и планшетах, а также gitрепозиторий с исходниками верстки.
 
+//сработка деселекта на description
+//мало ширины description на второй карточке (текст в два ряда)
 
-//    default/defaultHover .product__item-description
-//Чего сидишь? Порадуй котэ, <купи | color:   >.
-//  border - color: rgb(22, 152, 217);
-//  background - color: rgb(242, 242, 242);
-//  .Back {
-//    border - color: rgb(46, 168, 230);;
-//    background - color: rgb(242, 242, 242);
-
-//    selected/selectedHover .product__item-description
-//Печень утки разварная с артишоками.
-//Головы щучьи с чесноком да свежайшая сёмгушка.
-//Филе из цыплят с трюфелями в бульоне.
-// .Back {
-//   border - color: rgb(217, 22, 103);
-//   background - color: rgb(242, 242, 242);
-
-//    selectedHover .product__item-subtext
-//Котэ не одобряет? | color: #e62e7a
-// .Back {
-//   border - color: rgb(230, 46, 122);
-//   background - color: rgb(242, 242, 242);
-
-//    disabled .product__item-description
-// Печалька, с <фуа-гра> закончился. | color: #ffff66
-// .Back {;
-//   border - color: rgb(179, 179, 179); // #b3b3b3
-//   background - color: rgb(242, 242, 242);
-
-// добить адаптив (меньше 1200 - жопа)
