@@ -14,11 +14,11 @@ function App() {
   return (
     <AppWrapper>
       <Flex justify="center">
-        <Header color="green">Console CMD 2021. Stas_WD</Header>
+        <Header>Console CMD 2021. Stas_WD</Header>
       </Flex>
-      <Flex direction="column">
-        <Console margin="50px 0" color="green" />
-        <Button outlined color="green" align="flex-end">
+      <Flex direction="column" width="80%" margin="0 auto">
+        <Console fz="24px" />
+        <Button color="green" align="flex-end">
           Hit the road!
         </Button>
       </Flex>
