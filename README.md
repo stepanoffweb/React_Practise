@@ -8,6 +8,8 @@
 - создаем простое 'todo' где в App находятся и useState, и reducer со вспомогательными обработчиками конкретных кейсов
 ## s_getviewport_width
 Получаем на хуках (useState/useEffect) размеры viewport при ресайзе с использованием lodash throttle для таймаута проверки события - экономия ресурсов
+## s_styled_components
+Creating a console UI to browser: styling Components set (Header, textarea, Button,...) with animation, ThemeProvider, media requests, 'styled-components'library.
 ## Neighbourhood Map (neighbourhood-map branch)
 Learned from [Github repo](https://www.youtube.com/redirect?v=nDJ00zO9X2U&event=video_description&redir_token=bVU8gcsJVc0rbt5J8c2t6GxlyCJ8MTU2MDU4MjQzOEAxNTYwNDk2MDM4&q=https%3A%2F%2Fgithub.com%2Felharony%2FUdacity-P8-Neighborhood-Map-Project-Explained)</br>
 Used Google Maps API + FourSquare API:
