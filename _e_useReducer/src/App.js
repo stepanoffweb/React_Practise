@@ -1,11 +1,22 @@
-import React from 'react';
+import React from "react"
+import { useState } from "react"
 
-import './App.css';
+import "./App.css"
 
-function App() {
+export default function App() {
+  const [count, setState] = useState(0)
 
+  const increment = () => {
+    setState(prevState => (prevState += 1))
+  }
+  const decrement = () => {
+    setState(prevState => (prevState -= 1))
+  }
   return (
-    <div className="App">
-    </div>
-  );
+    <>
+      <button onClick={increment}>+</button>
+      {<span>{count}</span>}
+      <button onClick={decrement}>-</button>
+    </>
+  )
 }
