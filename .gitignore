@@ -44,9 +44,13 @@ Temporary Items
 
 # dependencies
 **/node_modules
+
 # next.js
 **/.next/
 # /out/ 
+
+**/.next
+
 
 /.pnp
 .pnp.js
