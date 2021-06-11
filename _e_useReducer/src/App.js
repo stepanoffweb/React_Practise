@@ -1,40 +1,58 @@
-import React from "react"
+import React, { useState } from "react"
 import { useReducer } from "react"
-
 import "./App.css"
+import Todo from "./Todo"
 
-const ACTIONS = {
-  DECREMENT: "decrement",
-  INCREMENT: "increment",
+export const ACTIONS = {
+  ADD_TODO: "add todo",
+  DELETE_TODO: "delete todo",
+  TOGGLE: "complete todo",
 }
 
-const reducer = (state, action) => {
+const reducer = (todos, action) => {
   switch (action.type) {
-    case ACTIONS.DECREMENT:
-      return { count: (state.count -= 1) }
-    case ACTIONS.INCREMENT:
-      return { count: (state.count += 1) }
-    default:
-      return state
+    case ACTIONS.ADD_TODO:
+      return [...todos, newTodo(action.payload.name)]
+    case ACTIONS.TOGGLE:
+      return todos.map(
+        todo =>
+          todo.id === action.payload.id && {
+            ...todo,
+            completed: !todo.completed,
+          }
+      )
+
+    case ACTIONS.DELETE_TODO:
+      return todos.filter(todo => todo.id !== action.payload.id)
   }
 }
-
+function newTodo(text) {
+  return { id: new Date().toLocaleString(), name: text, completed: false }
+}
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, { count: 0 })
+  const [text, setValue] = useState("")
+  const [todos, dispatch] = useReducer(reducer, [])
 
-  const increment = () => {
-    console.log("state I:", state)
-    dispatch({ type: ACTIONS.INCREMENT })
+  // console.log("todos:", todos)
+
+  const handleSubmit = e => {
+    // console.log("text:", text)
+    e.preventDefault()
+    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: text } })
+    setValue("")
   }
-  const decrement = () => {
-    console.log("state D:", state)
-    dispatch({ type: ACTIONS.DECREMENT })
+
+  const handleChange = e => {
+    setValue(e.target.value)
   }
   return (
-    <>
-      <button onClick={increment}>+</button>
-      {<span>{state.count}</span>}
-      <button onClick={decrement}>-</button>
-    </>
+    <div className="wrapper">
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={text} onChange={handleChange} />
+      </form>
+      {todos.map(todo => (
+        <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+      ))}
+    </div>
   )
 }
