@@ -1,12 +1,11 @@
-
 # React_Practise
 Приложения с законченным функционалом различной сложности на ReactJS.
   - e_ - elementary
   - s_ - symple
   - c_ - complex
 # App directories (каждое приложение - в своей git branch)
-## _useReducer
-- создаем простое 'todo' где в App находятся и useState, и reducer со вспомогательными обработчиками конкретных кейсов
+## e_useReducer
+- создаем простое 'todo' где в App находятся и useState, и reducer с  обработчиками конкретных кейсов
 ## s_getviewport_width
 Получаем на хуках (useState/useEffect) размеры viewport при ресайзе с использованием lodash throttle для таймаута проверки события - экономия ресурсов
 ## s_styled_components
