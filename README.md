@@ -3,7 +3,7 @@
 
 
  
-## How does it work:
+## How it  works:
   - clone/download the repo branch </br>
   - go into /todo-redux
   - `npm install`</br>
