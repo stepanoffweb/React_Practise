@@ -1,14 +1,22 @@
 import React, { useContext, useState } from "react"
 import { AlertContext } from "../context/alert/alertContext"
+import { DatabaseContext } from "../context/database/databaseContext"
 
 export default function Form() {
   const [value, setValue] = useState("")
   const alert = useContext(AlertContext)
+  const { addNote } = useContext(DatabaseContext)
 
   const handleSubmit = e => {
+    // console.log("value:", value)
     e.preventDefault()
-    alert.show(value, "success")
-    setValue("")
+    if (value.trim()) {
+      addNote(value.trim())
+      alert.show("The note was created", "success")
+      setValue("")
+    } else {
+      alert.show("Fill in the form, please...")
+    }
   }
 
   return (
