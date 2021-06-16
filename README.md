@@ -17,7 +17,7 @@
 But we would recommend using something like dotenv and put your key in an untracked .env file, that will then expose it as a 
 process.env variable, with much less leaking risks.
  
-## How does it work:
+## How it works:
   - clone/download the repo branch </br>
   - go into /map_gl
   - `npm install`</br>
