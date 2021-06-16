@@ -1,7 +1,7 @@
 # WeatherFinder
 Symple React App finds the weather in the geographic area</br>  
  * API  
-## How does it work:
+## How ше цщклы:
   - clone/download the repo branch </br>
   - go into /weather_finder
   - `npm install`</br>
